@@ -65,8 +65,41 @@
 		</ul>
 	</nav>
 
+	<div class="custom-control custom-switch">
+	  <input type="checkbox" class="custom-control-input" id="numberSwitch">
+	  <label class="custom-control-label" for="numberSwitch">Toggle line numbers</label>
+	</div>
+
 	<script src="js/getgreenscreen.js"></script>
+	<script>
+		var numbers = document.getElementsByClassName("hljs-ln-n");
+		console.log(numbers);
+		console.log(numbers.length);
+		for(var i = 0; i < numbers.length; i++)
+		{
+			console.log("changing number");
+			numbers[i].style.color = rgba(255, 255, 255, 0.0);
+		}
+		var mySwitch = document.getElementById("numberSwitch");
+		if(mySwitch.addEventListener) // For major browsers
+		{
+			mySwitch.addEventListener("click", toggleNumbers);
+		}
+		else if(mySwitch.attachEvent) // IE 8 and below
+		{
+			mySwitch.attachEvent("onclick", toggleNumbers);
+		}
+
+		function toggleNumbers()
+		{
+			$(document).ready(function() {
+				$('code.hljs').each(function(i, block) {
+					hljs.lineNumbersBlock(block);
+				});
+			});
+		}
+	</script>
 	<noscript>Javascript is disabled in your browser, please visit my GitHub to see my projects!</noscript>
-	
+
 </body>
 </html>
