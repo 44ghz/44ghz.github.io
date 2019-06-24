@@ -32,7 +32,7 @@ p {
   padding-left:  200px;
 	padding-right: 200px;
 	padding-top:   30px;
-	word-break: break-all;
+	word-break: keep-all;
 }
 
 .portrait {
