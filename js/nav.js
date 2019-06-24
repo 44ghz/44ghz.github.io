@@ -3,7 +3,7 @@ document.write(
 '		Placeholder Text' +
 '		<small style="font-size: 14px">test</small>' +
 '	</p>' +
-'<nav id="navbar" class="navbar navbar-expand-sm navbar-dark justify-content-center sticky-top">' +
+'<nav class="navbar navbar-expand-sm navbar-dark justify-content-center sticky-top">' +
 '	<ul class="navbar-nav">' +
 '		<li class="nav-item">' +
 '			<a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>' +
