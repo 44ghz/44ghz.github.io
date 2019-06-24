@@ -1,8 +1,11 @@
 document.write(
+// Header
 '	<p class="display-4" style="color:black; text-align:center; padding: 30px; user-select: none">' +
 '		Placeholder Text' +
 '		<small style="font-size: 14px">test</small>' +
 '	</p>' +
+
+// Navbar
 '<nav class="navbar navbar-expand-sm navbar-dark justify-content-center sticky-top">' +
 '	<ul class="navbar-nav">' +
 '		<li class="nav-item">' +
@@ -28,5 +31,9 @@ document.write(
 '			<a class="nav-link" href="mailto:george9722@gmail.com"><i class="far fa-paper-plane"></i> Contact</a>' +
 '		</li>' +
 '	</ul>' +
-'</nav>'
+'</nav>' +
+
+// For the scroll to top button
+'<button onclick="topFunction()" id="upButton" class="btn btn-dark"><i class="fas fa-arrow-up"></i></button>' +
+'<script src="js/scrolltotop.js"></script>'
 );
