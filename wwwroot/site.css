@@ -45,6 +45,11 @@ p {
 
 .display-4 {
   font-size: 3.5rem;
-  font-weight: 350;
+  font-weight: 370;
   line-height: 1.2;
+}
+
+.pre-scrollable {
+	max-height: 600px;
+  overflow-x: scroll;
 }
