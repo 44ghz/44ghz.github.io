@@ -14,6 +14,8 @@ p {
 
 .navbar {
 	background-image: linear-gradient(90deg, #232526 0%, #414345 80%);
+	background: url('../img/circuit.jpg');
+	background-blend-mode: saturation;
 }
 
 .navbar .nav-item .nav-link {
@@ -32,8 +34,8 @@ p {
 }
 
 .portrait {
-	content: url('../img/placeholder.png');
-	shape-outside: url('../img/placeholder.png');
+	content: image('../img/placeholder.png');
+	shape-outside: image('../img/placeholder.png');
 	float: left;
   width:  400px;
   height: 450px;
