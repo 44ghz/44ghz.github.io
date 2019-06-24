@@ -4,7 +4,6 @@ function get_content()
 	var content = responseObj.content;
 	content = atob(content); // Decoding the content of the file
 
-	//hljs.initHighlightingOnLoad();
 	// Creating element for code display
 	$(document.body).append('<div class="wrapper" style="padding-left: 300px; padding-right: 300px">' +
 	'<div class="custom-control custom-switch" style="padding-left: 43px">' +
@@ -12,8 +11,6 @@ function get_content()
 	'	<label class="custom-control-label" for="numberSwitch" style="user-select: none">Toggle line numbers</label>' +
 	'</div><pre><code class="hljs java">' + content + '</code></pre></div>');
 
-	//hljs.configure({ useBR: true });
-	//hljs.initLineNumbersOnLoad();
 	document.querySelectorAll('pre code').forEach((block) => {
 			hljs.highlightBlock(block);
 		});
