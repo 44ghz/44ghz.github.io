@@ -3624,11 +3624,11 @@ input[type="button"].btn-block {
 }
 
 .custom-control-input:focus ~ .custom-control-label::before {
-  box-shadow: 0 0 0 0.2rem rgba(65, 67, 69, 0.25);
+  /* box-shadow: 0 0 0 0.2rem rgba(65, 67, 69, 0.25); */
 }
 
 .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
-  border-color: #414345;
+  /* border-color: #414345; */
 }
 
 .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
@@ -3720,7 +3720,7 @@ input[type="button"].btn-block {
   left: -2.25rem;
   width: 1.75rem;
   pointer-events: all;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
 }
 
 .custom-switch .custom-control-label::after {
@@ -3729,7 +3729,7 @@ input[type="button"].btn-block {
   width: calc(1rem - 4px);
   height: calc(1rem - 4px);
   background-color: #adb5bd;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
   transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
