@@ -31,41 +31,29 @@
   <script src="js/nav.js"></script>
 </head>
 <body>
-	<script src="js/getgreenscreen.js"></script>
-	<div class="custom-control custom-switch">
-	  <input type="checkbox" class="custom-control-input" id="numberSwitch" checked>
-	  <label class="custom-control-label" for="numberSwitch" style="user-select: none">Toggle line numbers</label>
+	<div class="wrapper">
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+			Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+			It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+		</p>
+		<br>
+		<p>
+			It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+			It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+			Many desktop publishing packages and web page editors now use.
+		</p>
+		<br>
+		<p>
+			Nam maximus id lacus in malesuada. Aenean vitae lacus orci. Etiam pretium gravida nisi, et varius lorem pulvinar eget. Curabitur et mi enim. Nunc ac semper odio. Aenean eu diam et lorem blandit eleifend.
+			Fusce nec magna congue, placerat nisi eu, lobortis magna. Vivamus id pellentesque nibh. Aenean diam velit, venenatis non augue vitae, condimentum convallis ante.
+			Pellentesque sit amet sapien sit amet nibh mattis euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+			Nunc dapibus sapien sit amet felis sagittis venenatis. Praesent massa nulla, gravida sed vehicula a, maximus sit amet dui.
+		</p>
+		<hr>
 	</div>
-
+	<script src="js/getgreenscreen.js"></script>
 	<script>
-			var mySwitch = document.getElementById("numberSwitch"); // Add the toggle switch
-			if(mySwitch.addEventListener) // For major browsers
-			{
-				mySwitch.addEventListener("click", toggleNumbers);
-			}
-			else if(mySwitch.attachEvent) // IE 8 and below
-			{
-				mySwitch.attachEvent("onclick", toggleNumbers);
-			}
-
-			function toggleNumbers() // Toggle line numbers for code block
-			{
-				var numbers = document.getElementsByClassName("hljs-ln-n"); // Get the elements for line numbers
-				if(numbers[0].style.display === "none") // If the line numbers are visible
-				{
-					for(var i = 0; i < numbers.length; i++) // Disable all numbers
-					{
-						numbers[i].style.display = "block";
-					}
-				}
-				else // Otherwise, display them
-				{
-					for(var i = 0; i < numbers.length; i++)
-					{
-						numbers[i].style.display = "none";
-					}
-				}
-			}
 	</script>
 	<noscript>Javascript is disabled in your browser, please visit my GitHub to see my projects!</noscript>
 </body>
