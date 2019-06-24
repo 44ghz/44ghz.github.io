@@ -4067,7 +4067,7 @@ input[type="button"].btn-block {
 
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;
-	background-color: #1E1E1F;
+	background-color: rgba(30, 30, 31, 0.5);
 }
 
 .nav-link.disabled {
