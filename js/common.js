@@ -1,4 +1,13 @@
-document.write(
+var head =
+`<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#603cba">
+<meta name="theme-color" content="#ffffff">`;
+
+var body =
 `	<p class="display-4" style="color:black; text-align:center; padding: 30px; user-select: none">
 		Placeholder Text
 		<small style="font-size: 14px">test</small>
@@ -31,15 +40,8 @@ document.write(
 		</li>
 	</ul>
 </nav>
-
 <button onclick="topFunction()" id="upButton" class="btn btn-dark"><i class="fas fa-arrow-up"></i></button>
-<script src="js/scrolltotop.js"></script>
+<script src="js/scrolltotop.js"></script>`;
 
-<link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
-<link rel="manifest" href="../icons/site.webmanifest">
-<link rel="mask-icon" href="../icons/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#603cba">
-<meta name="theme-color" content="#ffffff">`
-);
+$("head").append(head);
+document.write(body);
