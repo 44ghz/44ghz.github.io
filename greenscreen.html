@@ -24,14 +24,34 @@
 	<link rel="stylesheet"
 	href="wwwroot/site.css">
 
-	<!-- Open Sans font support -->
+	<!-- Font support -->
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans"/>
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto"/>
 
 	<!-- Common HTML -->
   <script src="js/common.js"></script>
 </head>
 <body>
-	<div class="wrapper">
+		<script>
+			function get_file() // Get the file URL and open
+			{
+				var responseObj = JSON.parse(this.responseText);
+				var responseURL = responseObj.download_url;
+				window.open(responseURL, '_blank'); // Open file in new tab
+			}
+
+			function download_source()
+			{
+				var request = new XMLHttpRequest();
+				var fn = get_file;
+				request.onload = fn;
+				request.open('get', 'https://api.github.com/repos/44ghz/greenscreen/contents/greenscreen.java', true)
+				request.send();
+			}
+			</script>
+
+		<div class="wrapper">
+		<h1 style="font-weight: bold; font-family: 'Roboto'; font-size: 56px; user-select: none;">greenscreen</h1>
 		<p>
 			Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 			Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -50,11 +70,23 @@
 			Pellentesque sit amet sapien sit amet nibh mattis euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 			Nunc dapibus sapien sit amet felis sagittis venenatis. Praesent massa nulla, gravida sed vehicula a, maximus sit amet dui.
 		</p>
+		<br>
+		<br>
+		<div class="custom-control custom-switch">
+			<input class="custom-control-input" type="checkbox" id="numberSwitch" checked style="float: right;">
+			<label class="custom-control-label" for="numberSwitch" style="user-select: none; float: right;">Toggle line numbers</label>
+			<a href="https://github.com/44ghz/greenscreen" target="_blank"><button id="view" class="btn btn-dark"><i class="fab fa-github"></i> View on GitHub</button></a>
+			<button class="btn btn-dark" onclick="download_source()"><i class="fas fa-file-download"></i> Download Source</button>
+		</div>
 		<hr>
+		<div class="d-flex justify-content-center">
+  		<div class="spinner-border" role="status" id="loadinggs">
+    		<span class="sr-only">Loading...</span>
+			</div>
+		</div>
+		<script src="js/getgreenscreen.js"></script>
 	</div>
-	<script src="js/getgreenscreen.js"></script>
-	<script>
-	</script>
+
 	<noscript>Javascript is disabled in your browser, please visit my GitHub to see my projects!</noscript>
 </body>
 </html>
