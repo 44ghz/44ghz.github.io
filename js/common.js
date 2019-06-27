@@ -8,13 +8,13 @@ var head =
 <meta name="theme-color" content="#ffffff">`;
 
 var body =
-`	<p class="display-4" style="color:black; text-align:center; padding: 30px; user-select: none">
+`	<p class="display-4" style="color:black; background-color: white; text-align:center; padding: 20px; user-select: none">
 		Placeholder Text
 		<small style="font-size: 14px">test</small>
 	</p>
 
 
-<nav class="navbar navbar-expand-sm navbar-dark justify-content-center sticky-top">
+<nav class="navbar navbar-expand-sm navbar-dark justify-content-center sticky-top shadow-sm">
 	<ul class="navbar-nav">
 		<li class="nav-item">
 			<a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
@@ -28,7 +28,7 @@ var body =
 				Projects
 			</a>
 			<div class="dropdown-menu">
-				<a class="dropdown-item" href="#"> Schoolwork</a>
+				<a class="dropdown-item" href="schoolwork.html"> Schoolwork</a>
 				<a class="dropdown-item" href="greenscreen.html"> Greenscreen</a>
 			</div>
 		</li>
