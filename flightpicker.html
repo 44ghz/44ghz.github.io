@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>testing</title>
+
+	<!-- Bootstrap -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet"
+	href="bootstrap-4.3.1-dist/css/bootstrap.css">
+	<script src="bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+
+	<!-- Icons -->
+	<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+	<!-- Code highlighting and line numbering -->
+	<script src="highlight/highlight.pack.js"></script>
+	<script src="highlightjs-line-numbers.js-master/src/highlightjs-line-numbers.js"></script>
+	<link rel="stylesheet"
+	href="highlight/styles/atom-one-light.css">
+
+	<!-- Site css -->
+	<link rel="stylesheet"
+	href="wwwroot/site.css">
+
+	<!-- Font support -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans"/>
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto"/>
+
+	<!-- Common HTML -->
+  <script src="js/common.js"></script>
+
+	<!-- Source code retrieval -->
+	<script src="js/getsource.js"></script>
+	<script src="js/flightpicker/getall.js"></script>
+
+</head>
+<body>
+
+	<div class="wrapper">
+		<h1>placeholder</h1>
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+			Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+			It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+		</p>
+		<br>
+		<p>
+			It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+			It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+			Many desktop publishing packages and web page editors now use.
+		</p>
+		<br>
+		<p>
+			Nam maximus id lacus in malesuada. Aenean vitae lacus orci. Etiam pretium gravida nisi, et varius lorem pulvinar eget. Curabitur et mi enim. Nunc ac semper odio. Aenean eu diam et lorem blandit eleifend.
+			Fusce nec magna congue, placerat nisi eu, lobortis magna. Vivamus id pellentesque nibh. Aenean diam velit, venenatis non augue vitae, condimentum convallis ante.
+			Pellentesque sit amet sapien sit amet nibh mattis euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+			Nunc dapibus sapien sit amet felis sagittis venenatis. Praesent massa nulla, gravida sed vehicula a, maximus sit amet dui.
+		</p>
+		<br>
+		<br>
+
+		<h1>screenshots</h1>
+		<div id="flightpickerCarousel" class="carousel slide fluid" data-ride="carousel">
+			<!-- <ol class="carousel-indicators" id="fpcarouselindicators">
+				<li data-target="#flightpickerCarousel" data-slide-to="0" class="active border"></li>
+				<li data-target="#flightpickerCarousel" data-slide-to="1" class="border"></li>
+				<li data-target="#flightpickerCarousel" data-slide-to="2" class="border"></li>
+			</ol> -->
+
+			<div class="carousel-inner" id="fpcarouselinner">
+			</div>
+
+			<a class="carousel-control-prev" href="#flightpickerCarousel" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon border" style="background-color: #414345" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#flightpickerCarousel" role="button" data-slide="next">
+				<span class="carousel-control-next-icon border" style="background-color: #414345" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+
+		</div> <!-- Carousel -->
+
+		<!-- Populating the carousel with images from GitHub -->
+		<script>
+		var request = new XMLHttpRequest();
+		request.onload = function()
+		{
+			var images = JSON.parse(this.responseText);
+
+			//Adding the first image (needs to be active)
+			$("#fpcarouselinner").append(`<div class="carousel-item active" id="fpimg0">
+			<img src="` + images[0].download_url + `" class="d-block w-100" style="height: 650px;" alt=""></img>
+			</div>`);
+
+			// Adding each image from GitHub
+			for(var i = 1; i < images.length; i++)
+			{
+				$("#fpcarouselinner").append(
+				`<div class="carousel-item" id="fpimg` + i.toString() + `">
+				<img src="` + images[i].download_url + `" class="d-block w-100" style="height: 650px;" alt=""></img>
+				</div>`);
+			}
+		};
+		request.open('get', 'https://api.github.com/repos/44ghz/flight-picker/contents/screenshots/Final Screenshots of Output/Dark', true)
+		request.send();
+		</script>
+
+		<br><br>
+
+		<h1>code</h1>
+		<div class="custom-control custom-switch">
+			<input class="custom-control-input" type="checkbox" id="numberSwitch" checked style="float: right;">
+			<label class="custom-control-label" for="numberSwitch" style="user-select: none; float: right;">Toggle line numbers</label>
+			<a href="https://github.com/44ghz/flight-picker" target="_blank"><button id="view" class="btn border btn-dark"><i class="fab fa-github"></i>&nbsp&nbspView on GitHub</button></a>
+		</div>
+		<hr>
+
+		<div class="accordion" id="fpAccordion" style="font-family: 'Segoe UI'">
+
+		  <div class="card bg-light" id="fpMainCard">
+		    <div class="card-header" id="fpMainHeader">
+		      <h2 class="mb-0">
+		        <button class="btn btn collapsed" style="padding-right: 1122px;" type="button" data-toggle="collapse" data-target="#fpFile1" aria-expanded="true" aria-controls="fpFile1">
+		          /main.pyw
+		        </button>
+		      </h2>
+		    </div>
+		    <div id="fpFile1" class="collapse" aria-labelledby="fpMainHeader" data-parent="#fpAccordion">
+		      <div class="card-body" id="fpMainBody">
+						A Python program that parses and tabulates a large excel file to find the best flights for certain criteria.
+						There are two modes in which it operates: Automatic and Manual.
+						Automatic will find the best flights for all criteria, whereas Manual will find the best flights for criteria provided by the user.
+						Utilizes Tkinter for GUI and pandas for initial data manipulation. Additionally, uses various intermediate files to increase performance of the program, primarily .dat and .csv files. Created for my Programming Languages course in Spring 2019.
+						<br><br>
+						<button class="btn border btn-dark" onclick="download_source('main.pyw')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
+						<hr>
+						<div class="d-flex justify-content-center">
+							<div class="spinner-border" role="status" id="loadingFpMain">
+								<span class="sr-only">Loading...</span>
+							</div>
+						</div>
+					</div>
+		    </div>
+		  </div>
+
+		  <div class="card bg-light" id="fpDataretrievalCard">
+		    <div class="card-header" id="fpDataretrievalHeader">
+		      <h2 class="mb-0">
+		        <button class="btn btn collapsed" style="padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpDataretrieval" aria-expanded="false" aria-controls="fpDataretrieval">
+		          /modules/dataretrieval.py
+		        </button>
+		      </h2>
+		    </div>
+		    <div id="fpDataretrieval" class="collapse" aria-labelledby="fpDataretrievalHeader" data-parent="#fpAccordion">
+		      <div class="card-body" id="fpDataretrievalBody">
+						Testing
+						<br><br>
+						<button class="btn border btn-dark" onclick="download_source('/modules/dataretrieval.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
+						<hr>
+						<div class="d-flex justify-content-center">
+							<div class="spinner-border" role="status" id="loadingFpDataretrieval">
+								<span class="sr-only">Loading...</span>
+							</div>
+						</div>
+					</div>
+		    </div>
+		  </div>
+
+			<div class="card bg-light" id="fpOptionsCard">
+		    <div class="card-header" id="fpOptionsHeader">
+		      <h2 class="mb-0">
+		        <button class="btn btn collapsed" style="padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpOptions" aria-expanded="false" aria-controls="fpOptions">
+		          /modules/options.py
+		        </button>
+		      </h2>
+		    </div>
+		    <div id="fpOptions" class="collapse" aria-labelledby="fpOptionsHeader" data-parent="#fpAccordion">
+		      <div class="card-body" id="fpOptionsBody">
+						Testing
+						<br><br>
+						<button class="btn border btn-dark" onclick="download_source('/modules/options.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
+						<hr>
+						<div class="d-flex justify-content-center">
+							<div class="spinner-border" role="status" id="loadingFpOptions">
+								<span class="sr-only">Loading...</span>
+							</div>
+						</div>
+					</div>
+		    </div>
+		  </div>
+
+			<div class="card bg-light" id="fpResultsCard">
+		    <div class="card-header" id="fpResultsHeader">
+		      <h2 class="mb-0">
+		        <button class="btn btn collapsed" style="padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpResults" aria-expanded="false" aria-controls="fpResults">
+		          /modules/results.py
+		        </button>
+		      </h2>
+		    </div>
+		    <div id="fpResults" class="collapse" aria-labelledby="fpResultsHeader" data-parent="#fpAccordion">
+		      <div class="card-body" id="fpResultsBody">
+						Testing
+						<br><br>
+						<button class="btn border btn-dark" onclick="download_source('/modules/results.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
+						<hr>
+						<div class="d-flex justify-content-center">
+							<div class="spinner-border" role="status" id="loadingFpResults">
+								<span class="sr-only">Loading...</span>
+							</div>
+						</div>
+					</div>
+		    </div>
+		  </div>
+
+			<div class="card bg-light" id="fpTkfunctionsCard">
+		    <div class="card-header" id="fpTkfunctionsHeader">
+		      <h2 class="mb-0">
+		        <button class="btn btn collapsed" style="padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpTkfunctions" aria-expanded="false" aria-controls="fpTkfunctions">
+		          /modules/tkfunctions.py
+		        </button>
+		      </h2>
+		    </div>
+		    <div id="fpTkfunctions" class="collapse" aria-labelledby="fpTkfunctionsHeader" data-parent="#fpAccordion">
+		      <div class="card-body" id="fpTkfunctionsBody">
+						Testing
+						<br><br>
+						<button class="btn border btn-dark" onclick="download_source('/modules/tkfunctions.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
+						<hr>
+						<div class="d-flex justify-content-center">
+							<div class="spinner-border" role="status" id="loadingFpTkfunctions">
+								<span class="sr-only">Loading...</span>
+							</div>
+						</div>
+					</div>
+		    </div>
+		  </div>
+
+		</div> <!-- Accordion -->
+	</div> <!-- Wrapper -->
+
+	<br>
+	<div class="wrapper" style="pointer-events: none; user-select: none; user-interaction: none; disabled">
+	<div style="text-align: center; padding-bottom: 40px;">
+		<img draggable="false" src="img/ghmark32.png" alt="GitHub Mark" style="opacity: 0.2;"></img>
+	</div>
+	</div>
+
+	<noscript>Javascript is disabled in your browser, please visit my GitHub to see my projects!</noscript>
+</body>
+</html>
