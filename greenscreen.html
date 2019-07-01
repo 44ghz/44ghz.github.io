@@ -30,28 +30,14 @@
 
 	<!-- Common HTML -->
   <script src="js/common.js"></script>
+
+	<!-- Source code retrieval -->
+	<script src="js/getsource.js"></script>
+
 </head>
 <body>
-		<script>
-			function get_file() // Get the file URL and open
-			{
-				var responseObj = JSON.parse(this.responseText);
-				var responseURL = responseObj.download_url;
-				window.open(responseURL, '_blank'); // Open file in new tab
-			}
-
-			function download_source()
-			{
-				var request = new XMLHttpRequest();
-				var fn = get_file;
-				request.onload = fn;
-				request.open('get', 'https://api.github.com/repos/44ghz/greenscreen/contents/greenscreen.java', true)
-				request.send();
-			}
-			</script>
-
 		<div class="wrapper">
-		<h1 style="font-weight: bold; font-family: 'Roboto'; font-size: 56px; user-select: none;">greenscreen</h1>
+		<h1 style="font-weight: bold; font-size: 56px; user-select: none;">greenscreen</h1>
 		<p>
 			Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 			Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -75,8 +61,8 @@
 		<div class="custom-control custom-switch">
 			<input class="custom-control-input" type="checkbox" id="numberSwitch" checked style="float: right;">
 			<label class="custom-control-label" for="numberSwitch" style="user-select: none; float: right;">Toggle line numbers</label>
-			<a href="https://github.com/44ghz/greenscreen" target="_blank"><button id="view" class="btn btn-dark"><i class="fab fa-github"></i> View on GitHub</button></a>
-			<button class="btn btn-dark" onclick="download_source()"><i class="fas fa-file-download"></i> Download Source</button>
+			<a href="https://github.com/44ghz/greenscreen" target="_blank"><button id="view" class="btn border btn-dark"><i class="fab fa-github"></i>&nbsp&nbspView on GitHub</button></a>
+			<button class="btn border btn-dark" onclick="download_source('greenscreen', 'greenscreen.java')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
 		</div>
 		<hr>
 		<div class="d-flex justify-content-center">
@@ -84,7 +70,7 @@
     		<span class="sr-only">Loading...</span>
 			</div>
 		</div>
-		<script src="js/getgreenscreen.js"></script>
+		<script src="js/greenscreen/getgreenscreen.js"></script>
 	</div>
 
 	<noscript>Javascript is disabled in your browser, please visit my GitHub to see my projects!</noscript>
