@@ -16,28 +16,42 @@ var body =
 
 <nav class="navbar navbar-expand-sm navbar-dark justify-content-center sticky-top shadow-sm">
 	<ul class="navbar-nav">
+
 		<li class="nav-item">
-			<a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+			<a class="nav-link" href="index.html"><i class="fas fa-home"></i>&nbspHome</a>
 		</li>
+
 		<li class="nav-item">
-			<a class="nav-link" href="docs/George Perez Resume.pdf"><i class="far fa-address-card"></i>  Resume</a>
+			<a class="nav-link" href="docs/George Perez Resume.pdf"><i class="far fa-address-card"></i>&nbspResume</a>
 		</li>
+
 		<li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
 				<i class="fas fa-laptop-code"></i>
 				Projects
 			</a>
-			<div class="dropdown-menu">
-				<a class="dropdown-item" href="schoolwork.html"> Schoolwork</a>
-				<a class="dropdown-item" href="greenscreen.html"> Greenscreen</a>
+			<div class="dropdown-menu" style="background: #f9f9f9;">
+				<a class="dropdown-item" href="schoolwork.html">Schoolwork</a>
+				<a class="dropdown-item" href="greenscreen.html">Greenscreen</a>
 			</div>
 		</li>
+
 		<li class="nav-item">
-			<a class="nav-link" href="https://github.com/44ghz"><i class="fab fa-github"></i> GitHub</a>
+			<a class="nav-link" href="https://github.com/44ghz"><i class="fab fa-github"></i>&nbspGitHub</a>
 		</li>
+
 		<li class="nav-item">
-			<a class="nav-link" href="mailto:george9722@gmail.com"><i class="far fa-paper-plane"></i> Contact</a>
+			<a class="nav-link" href="https://linkedin.com/in/george-perez-749b95174"><i class="fab fa-linkedin"></i>&nbspLinkedIn </a>
 		</li>
+
+		<li class="nav-item">
+			<a class="nav-link" href="mailto:george9722@gmail.com"><i class="far fa-paper-plane"></i>&nbspContact</a>
+		</li>
+
+		<div style="border-left:1px solid #f9f9f9; height:40px"></div>
+
+		<button class="nav-link" style="height: 0px;" id="moon"> <i class="far fa-moon"></i></button>
+
 	</ul>
 </nav>
 <button onclick="topFunction()" id="upButton" class="btn btn-dark"><i class="fas fa-arrow-up"></i></button>
