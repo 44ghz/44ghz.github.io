@@ -57,6 +57,8 @@ function get_content(fnName, content)
 
 function pad_content(content)
 {
+	content = content.split('<').join("&lt"); // Replacing angle brackets to display on page
+	content = content.split('>').join("&gt"); // Replacing angle brackets to display on page
 	var newContent = content.split('\n'); // Split the string on all newlines
 
 	for(var i = 0; i < newContent.length; i++) // Add a space to the beginning of each line
