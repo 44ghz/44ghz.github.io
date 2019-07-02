@@ -5,10 +5,11 @@ var head =
 <link rel="manifest" href="site.webmanifest">
 <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#603cba">
-<meta name="theme-color" content="#ffffff">`;
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width">`;
 
 var body =
-`	<p class="display-4" style="color:black; background-color: white; text-align:center; padding: 20px; user-select: none">
+`	<p class="display-4">
 		Placeholder Text
 		<small style="font-size: 14px">test</small>
 	</p>
@@ -30,7 +31,9 @@ var body =
 				<i class="fas fa-laptop-code"></i>
 				Projects
 			</a>
-			<div class="dropdown-menu" style="background: #f9f9f9;">
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="projects.html">Project Home</a>
+
 				<a class="dropdown-item" href="schoolwork.html">Schoolwork</a>
 				<a class="dropdown-item" href="greenscreen.html">Greenscreen</a>
 			</div>
@@ -50,12 +53,49 @@ var body =
 
 		<div style="border-left:1px solid #f9f9f9; height:40px"></div>
 
-		<button class="nav-link" style="height: 0px;" id="moon"> <i class="far fa-moon"></i></button>
+		<script src="js/nightmode.js"></script>
+		<button onclick="toggleNightMode()" id="moon"><i id="moonIcon"></i></button>
+		<script>
+		
+		</script>
 
 	</ul>
 </nav>
-<button onclick="topFunction()" id="upButton" class="btn btn-dark"><i class="fas fa-arrow-up"></i></button>
+<button onclick="topFunction()" id="upButton" class="btn btn-dark"><i style="padding-top: 0.4rem;" class="fas fa-angle-up"></i></button>
 <script src="js/scrolltotop.js"></script>`;
 
-$("head").append(head);
+var page = document.getElementsByTagName("html")[0]; // Get the entire html page as an object
+
+if(localStorage["mode"] === "dark") // Ensure the site retains the color mode
+{
+	// Allows the correct icon to carry through
+	$(document).ready(function() {$("#moonIcon").addClass("fas fa-moon"); return false});
+
+	page.style.cssText = "--mydark: #ced0d9";
+	page.style.cssText += "--mylight: #282c34";
+	page.style.cssText += "--mygray: #1f2329";
+	page.style.cssText += "--mylight-gray: #343b45"
+	page.style.cssText += "--mydark-gray: #21242b";
+	page.style.cssText += "--white: #000000";
+	page.style.cssText += "--black: #ffffff";
+	head += "<link rel='stylesheet' href='./highlight/styles/atom-one-dark.css'>";
+
+}
+else
+{
+	// Allows the correct icon to carry through
+	$(document).ready(function() {$("#moonIcon").addClass("far fa-moon"); return false});
+
+	page.style.cssText = "--mydark: #414345";
+	page.style.cssText += "--mylight: #f9f9f9";
+	page.style.cssText += "--mygray: #e8e8e8";
+	page.style.cssText += "--mylight-gray: #f2f2f2";
+	page.style.cssText += "--mydark-gray: #e0e0e0";
+	page.style.cssText += "--white: #ffffff";
+	page.style.cssText += "--black: #000000";
+	head += "<link rel='stylesheet' href='./highlight/styles/atom-one-light.css'>";
+}
+
 document.write(body);
+
+$("head").append(head);
