@@ -5,8 +5,7 @@ var head =
 <link rel="manifest" href="site.webmanifest">
 <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#603cba">
-<meta name="theme-color" content="#ffffff">
-<meta name="viewport" content="width=device-width">`;
+<meta name="theme-color" content="#ffffff">`;
 
 var body =
 `	<p class="display-4">
@@ -56,7 +55,7 @@ var body =
 		<script src="js/nightmode.js"></script>
 		<button onclick="toggleNightMode()" id="moon"><i id="moonIcon"></i></button>
 		<script>
-		
+
 		</script>
 
 	</ul>
