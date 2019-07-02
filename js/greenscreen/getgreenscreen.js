@@ -10,7 +10,7 @@ function get_content()
 	` <div class="wrapper"><pre><code class="hljs java">` + content + `</code></pre></div>
 		<div class="wrapper" style="pointer-events: none; user-select: none; user-interaction: none; disabled">
 		<div style="text-align: center; padding-bottom: 40px;">
-			<img draggable="false" src="img/ghmark32.png" alt="GitHub Mark" style="opacity: 0.2;"></img>
+			<img draggable="false" src="img/ghmark32.png" alt="GitHub Mark" style="opacity: 0.2;"></img><span style="font-size: 12px; opacity: 0.4;">&nbspAPI</span>
 		</div>
 		</div>`);
 
@@ -50,6 +50,8 @@ document.addEventListener("DOMContentLoaded", function(e)
 
 function pad_content(content)
 {
+	content = content.split('<').join("&lt"); // Replacing angle brackets to display on page
+	content = content.split('>').join("&gt"); // Replacing angle brackets to display on page
 	var newContent = content.split('\n'); // Split the string on all newlines
 
 
