@@ -17,8 +17,7 @@
 	<!-- Code highlighting and line numbering -->
 	<script src="highlight/highlight.pack.js"></script>
 	<script src="highlightjs-line-numbers.js-master/src/highlightjs-line-numbers.js"></script>
-	<link rel="stylesheet"
-	href="highlight/styles/atom-one-light.css">
+
 
 	<!-- Site css -->
 	<link rel="stylesheet"
@@ -39,6 +38,10 @@
 <body>
 
 	<div class="wrapper">
+		<div class="bc">
+			<h3>/&nbsp<a class="bclink" href="projects.html">projects</a>&nbsp/&nbsp<a class="bclink" href="schoolwork.html">schoolwork</a>&nbsp/&nbspflight-picker</h3>
+			<hr>
+		</div>
 		<h1>placeholder</h1>
 		<p>
 			Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -63,6 +66,11 @@
 
 		<h1>screenshots</h1>
 		<div id="flightpickerCarousel" class="carousel slide fluid" data-ride="carousel">
+			<div class="d-flex justify-content-center">
+				<div class="spinner-border" role="status" id="loadingFpCarousel">
+					<span class="sr-only">Loading...</span>
+				</div>
+			</div>
 			<!-- <ol class="carousel-indicators" id="fpcarouselindicators">
 				<li data-target="#flightpickerCarousel" data-slide-to="0" class="active border"></li>
 				<li data-target="#flightpickerCarousel" data-slide-to="1" class="border"></li>
@@ -80,6 +88,7 @@
 				<span class="carousel-control-next-icon border" style="background-color: #414345" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
+
 
 		</div> <!-- Carousel -->
 
@@ -119,11 +128,14 @@
 		<hr>
 
 		<div class="accordion" id="fpAccordion" style="font-family: 'Segoe UI', 'Roboto', 'Open Sans', 'Optima', sans-serif;">
-
-		  <div class="card bg-light" id="fpMainCard">
+			<script>
+				var removeLoading = document.getElementById("loadingFpCarousel");
+				removeLoading.parentNode.removeChild(removeLoading);
+			</script>
+		  <div class="card" id="fpMainCard">
 		    <div class="card-header" id="fpMainHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" style="padding-right: 1122px;" type="button" data-toggle="collapse" data-target="#fpFile1" aria-expanded="true" aria-controls="fpFile1">
+		        <button class="btn btn collapsed" style="color: var(--black); padding-right: 1122px;" type="button" data-toggle="collapse" data-target="#fpFile1" aria-expanded="true" aria-controls="fpFile1">
 		          /main.pyw
 		        </button>
 		      </h2>
@@ -146,10 +158,10 @@
 		    </div>
 		  </div>
 
-		  <div class="card bg-light" id="fpDataretrievalCard">
+		  <div class="card" id="fpDataretrievalCard">
 		    <div class="card-header" id="fpDataretrievalHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" style="padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpDataretrieval" aria-expanded="false" aria-controls="fpDataretrieval">
+		        <button class="btn btn collapsed" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpDataretrieval" aria-expanded="false" aria-controls="fpDataretrieval">
 		          /modules/dataretrieval.py
 		        </button>
 		      </h2>
@@ -169,10 +181,10 @@
 		    </div>
 		  </div>
 
-			<div class="card bg-light" id="fpOptionsCard">
+			<div class="card" id="fpOptionsCard">
 		    <div class="card-header" id="fpOptionsHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" style="padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpOptions" aria-expanded="false" aria-controls="fpOptions">
+		        <button class="btn btn collapsed" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpOptions" aria-expanded="false" aria-controls="fpOptions">
 		          /modules/options.py
 		        </button>
 		      </h2>
@@ -192,10 +204,10 @@
 		    </div>
 		  </div>
 
-			<div class="card bg-light" id="fpResultsCard">
+			<div class="card" id="fpResultsCard">
 		    <div class="card-header" id="fpResultsHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" style="padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpResults" aria-expanded="false" aria-controls="fpResults">
+		        <button class="btn btn collapsed" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpResults" aria-expanded="false" aria-controls="fpResults">
 		          /modules/results.py
 		        </button>
 		      </h2>
@@ -215,10 +227,10 @@
 		    </div>
 		  </div>
 
-			<div class="card bg-light" id="fpTkfunctionsCard">
+			<div class="card" id="fpTkfunctionsCard">
 		    <div class="card-header" id="fpTkfunctionsHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" style="padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpTkfunctions" aria-expanded="false" aria-controls="fpTkfunctions">
+		        <button class="btn btn collapsed" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpTkfunctions" aria-expanded="false" aria-controls="fpTkfunctions">
 		          /modules/tkfunctions.py
 		        </button>
 		      </h2>
@@ -244,7 +256,7 @@
 	<br>
 	<div class="wrapper" style="pointer-events: none; user-select: none; user-interaction: none; disabled">
 	<div style="text-align: center; padding-bottom: 40px;">
-		<img draggable="false" src="img/ghmark32.png" alt="GitHub Mark" style="opacity: 0.2;"></img>
+		<img draggable="false" src="img/ghmark32.png" alt="GitHub Mark" style="opacity: 0.2;"></img><span style="font-size: 12px; opacity: 0.4;">&nbspAPI</span>
 	</div>
 	</div>
 
