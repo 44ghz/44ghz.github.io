@@ -113,10 +113,13 @@ a.bclink:active {
 		transform: translate(-1px, 1px);
 }
 
-
 /*||||||||||||||||||||||||||*/
 /*|| Bootstrap overwrites ||*/
 /*||||||||||||||||||||||||||*/
+
+.code {
+	scrollbar-color: dark;
+}
 
 .display-4 {
 	color: var(--black);
@@ -272,11 +275,14 @@ a.bclink:active {
 
 .card-body {
 	background-color: var(--mylight-gray);
+	color: var(--mydark);
+	font-family: "Roboto", "Segoe UI", "Open Sans", "Optima", sans-serif;
 }
 
 .card-header {
 	color: var(--mydark);
 	background-color: var(--mydark-gray);
+	font-family: "Segoe UI", "Roboto", "Open Sans", "Optima", sans-serif;
 }
 
 .spinner-border {
