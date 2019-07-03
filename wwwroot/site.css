@@ -139,6 +139,10 @@ a.bclink:active {
   overflow-x: scroll;
 }
 
+.btn {
+	text-decoration: bold;
+}
+
 .btn:active {
 	transform: translate(-1px, 1px);
 }
@@ -276,9 +280,10 @@ a.bclink:active {
 }
 
 .card-header {
-	color: var(--mydark);
 	background-color: var(--mydark-gray);
+	color: var(--mydark);
 	font-family: "Segoe UI", "Roboto", "Open Sans", "Optima", sans-serif;
+	user-select: none;
 }
 
 .spinner-border {
