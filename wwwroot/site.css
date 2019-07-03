@@ -79,7 +79,7 @@ a.bclink:active {
 }
 
 ::selection {
-	background: var(--mygray);
+	background: var(--mydark);
 	color: var(--mylight);
 }
 
@@ -116,10 +116,6 @@ a.bclink:active {
 /*||||||||||||||||||||||||||*/
 /*|| Bootstrap overwrites ||*/
 /*||||||||||||||||||||||||||*/
-
-.code {
-	scrollbar-color: dark;
-}
 
 .display-4 {
 	color: var(--black);
