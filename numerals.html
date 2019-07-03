@@ -32,6 +32,7 @@
   <script src="js/common.js"></script>
 
 	<!-- Source code retrieval -->
+	<script src="js/displaysource.js"></script>
 	<script src="js/getsource.js"></script>
 
 </head>
@@ -79,7 +80,10 @@
     		<span class="sr-only">Loading...</span>
 			</div>
 		</div>
-		<script src="js/numerals/getnumerals.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function(e)
+				{display_source("roman-numeral-converter", "/numerals.cpp", "c++", "loadingnm")});
+		</script>
 	</div> <!-- Wrapper -->
 
 	<br>
