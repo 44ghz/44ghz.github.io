@@ -25,7 +25,7 @@ function toggleNightMode()
 		// Animation for changing icon once the moon has set
 		window.setTimeout(function(){
 			$("#moonIcon").removeClass("fas fa-moon"); // Swapping moon icon
-			$("#moonIcon").addClass("far fa-moon");
+			$("#moonIcon").addClass("fas fa-sun");
 		}, 200);
 	}
 	else
@@ -50,7 +50,7 @@ function toggleNightMode()
 
 		// Animation for changing icon once the moon has set
 		window.setTimeout(function(){
-			$("#moonIcon").removeClass("far fa-moon"); // Swapping moon icon
+			$("#moonIcon").removeClass("fas fa-sun"); // Swapping moon icon
 			$("#moonIcon").addClass("fas fa-moon");
 		}, 200);
 	}

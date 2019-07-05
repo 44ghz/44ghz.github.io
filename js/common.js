@@ -55,7 +55,7 @@ var body =
 		<div style="border-left:1px solid var(--mydark); height:42px"></div>
 
 		<script src="js/nightmode.js"></script>
-		<button onclick="toggleNightMode()" id="moon"><i id="moonIcon"></i></button>
+		<button onclick="toggleNightMode()" id="moon"><i id="moonIcon"></i> <span>Toggle Night Mode<span></button>
 
 	</ul>
 </nav>
@@ -86,7 +86,7 @@ if(localStorage["mode"] === "dark") // Ensure the site retains the color mode
 else
 {
 	// Allows the correct icon to carry through
-	$(document).ready(function() {$("#moonIcon").addClass("far fa-moon"); return false});
+	$(document).ready(function() {$("#moonIcon").addClass("fas fa-sun"); return false});
 
 	page.style.cssText = "--mydark: #414345";
 	page.style.cssText += "--mylight: #f9f9f9";
