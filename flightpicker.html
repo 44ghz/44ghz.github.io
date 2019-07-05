@@ -31,12 +31,14 @@
   <script src="js/common.js"></script>
 
 	<!-- Source code retrieval -->
-	<script src="js/getsource.js"></script>
 	<script src="js/flightpicker/getfiles.js"></script>
+	<script src="js/getsource.js"></script>
+	<script src="js/multiplescrollbuttons.js"></script>
+	<script src="js/removeupbutton.js"></script>
 
 </head>
 <body>
-
+	<button onclick="fpTopFunction()" id="fpUpButton" class="btn btn-dark"><i style="padding-top: 0.4rem;" class="fas fa-angle-up"></i></button>
 	<div class="wrapper">
 		<div class="bc">
 			<h3>/&nbsp<a class="bclink" href="projects.html">projects</a>&nbsp/&nbsp<a class="bclink" href="schoolwork.html">schoolwork</a>&nbsp/&nbspflight-picker</h3>
@@ -135,7 +137,7 @@
 		  <div class="card" id="fpMainCard">
 		    <div class="card-header" id="fpMainHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" style="color: var(--black); padding-right: 1122px;" type="button" data-toggle="collapse" data-target="#fpFile1" aria-expanded="true" aria-controls="fpFile1">
+		        <button onclick="removeUpButton('fpUpButton')" class="btn btn collapsed" style="color: var(--black); padding-right: 1122px;" type="button" data-toggle="collapse" data-target="#fpFile1" aria-expanded="true" aria-controls="fpFile1">
 		          /main.pyw
 		        </button>
 		      </h2>
@@ -161,7 +163,7 @@
 		  <div class="card" id="fpDataretrievalCard">
 		    <div class="card-header" id="fpDataretrievalHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpDataretrieval" aria-expanded="false" aria-controls="fpDataretrieval">
+		        <button class="btn btn collapsed" onclick="removeUpButton('fpUpButton')" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpDataretrieval" aria-expanded="false" aria-controls="fpDataretrieval">
 		          /modules/dataretrieval.py
 		        </button>
 		      </h2>
@@ -184,7 +186,7 @@
 			<div class="card" id="fpOptionsCard">
 		    <div class="card-header" id="fpOptionsHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpOptions" aria-expanded="false" aria-controls="fpOptions">
+		        <button class="btn btn collapsed" onclick="removeUpButton('fpUpButton')" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpOptions" aria-expanded="false" aria-controls="fpOptions">
 		          /modules/options.py
 		        </button>
 		      </h2>
@@ -207,7 +209,7 @@
 			<div class="card" id="fpResultsCard">
 		    <div class="card-header" id="fpResultsHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpResults" aria-expanded="false" aria-controls="fpResults">
+		        <button class="btn btn collapsed" onclick="removeUpButton('fpUpButton')" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpResults" aria-expanded="false" aria-controls="fpResults">
 		          /modules/results.py
 		        </button>
 		      </h2>
@@ -230,7 +232,7 @@
 			<div class="card" id="fpTkfunctionsCard">
 		    <div class="card-header" id="fpTkfunctionsHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpTkfunctions" aria-expanded="false" aria-controls="fpTkfunctions">
+		        <button class="btn btn collapsed" onclick="removeUpButton('fpUpButton')" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpTkfunctions" aria-expanded="false" aria-controls="fpTkfunctions">
 		          /modules/tkfunctions.py
 		        </button>
 		      </h2>
@@ -252,7 +254,6 @@
 
 		</div> <!-- Accordion -->
 	</div> <!-- Wrapper -->
-
 	<br>
 	<div class="wrapper" style="pointer-events: none; user-select: none; user-interaction: none; disabled">
 	<div style="text-align: center; padding-bottom: 40px;">
