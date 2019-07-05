@@ -12,6 +12,13 @@
 	--white: #ffffff;
 	--nav-background-img: url("../img/stars.png");
 }
+* {
+	transition: all 0.5;
+}
+
+*:not(#moonIcon) {
+	transition: all 0.5s ease 0s;
+}
 
 html, body, p {
 	background-color: var(--mylight);
@@ -124,8 +131,24 @@ a.bclink:active {
 	outline: none;
 }
 
+#moon span {
+  max-width: 0;
+  -webkit-transition: max-width 1s;
+  transition: max-width 1s;
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#moon:hover span {
+	-webkit-transition-delay: 1.3s;
+	transition-delay: 1.3s;
+	max-width: 10rem;
+}
+
 #moon:active {
-		transform: translate(-1px, 1px);
+	transform: translate(-1px, 1px);
 }
 
 /*||||||||||||||||||||||||||*/
