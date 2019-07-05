@@ -9,6 +9,10 @@ function toggleNightMode()
 		page.style.cssText += "--mygray: #1f2329";
 		page.style.cssText += "--mylight-gray: #343b45"
 		page.style.cssText += "--mydark-gray: #21242b";
+		page.style.cssText += "--nav-hover: #3b3645";
+		page.style.cssText += "--nav-gradient-1: #33303d";
+		page.style.cssText += "--nav-gradient-2: #1c1e24";
+		page.style.cssText += "--display-light: #1a191f"
 		page.style.cssText += "--white: #000000";
 		page.style.cssText += "--black: #ffffff";
 
@@ -31,6 +35,10 @@ function toggleNightMode()
 		page.style.cssText += "--mygray: #e8e8e8";
 		page.style.cssText += "--mylight-gray: #f2f2f2";
 		page.style.cssText += "--mydark-gray: #e0e0e0";
+		page.style.cssText += "--nav-hover: #fff1c7";
+		page.style.cssText += "--nav-gradient-1: #fceabb";
+		page.style.cssText += "--nav-gradient-2: #ffd754";
+		page.style.cssText += "--display-light: #ffffff"
 		page.style.cssText += "--white: #ffffff";
 		page.style.cssText += "--black: #000000";
 

@@ -24,7 +24,7 @@ var body =
 		</li>
 
 		<li class="nav-item">
-			<a class="nav-link" href="docs/George Perez Resume.pdf"><i class="far fa-address-card"></i>&nbspResume</a>
+			<a class="nav-link" href="resume.html"><i class="far fa-address-card"></i>&nbspResume</a>
 		</li>
 
 		<li class="nav-item dropdown">
@@ -52,14 +52,14 @@ var body =
 			<a class="nav-link" href="mailto:george9722@gmail.com"><i class="far fa-paper-plane"></i>&nbspContact</a>
 		</li>
 
-		<div style="border-left:1px solid #f9f9f9; height:40px"></div>
+		<div style="border-left:1px solid var(--mydark); height:42px"></div>
 
 		<script src="js/nightmode.js"></script>
 		<button onclick="toggleNightMode()" id="moon"><i id="moonIcon"></i></button>
 
 	</ul>
 </nav>
-<button onclick="topFunction()" id="upButton" class="btn btn-dark"><i style="padding-top: 0.4rem;" class="fas fa-angle-up"></i></button>
+<button onclick="topFunction()" id="upButton" class="btn btn-dark"><i style="padding-top: 0.4rem;" class="fas fa-angle-double-up"></i></button>
 <script src="js/scrolltotop.js"></script>`;
 
 var page = document.getElementsByTagName("html")[0]; // Get the entire html page as an object
@@ -74,10 +74,14 @@ if(localStorage["mode"] === "dark") // Ensure the site retains the color mode
 	page.style.cssText += "--mygray: #1f2329";
 	page.style.cssText += "--mylight-gray: #343b45"
 	page.style.cssText += "--mydark-gray: #21242b";
+	page.style.cssText += "--nav-hover: #3b3645";
+	page.style.cssText += "--nav-gradient-1: #33303d";
+	page.style.cssText += "--nav-gradient-2: #1c1e24";
+	page.style.cssText += "--display-light: #1a191f";
 	page.style.cssText += "--white: #000000";
 	page.style.cssText += "--black: #ffffff";
-	head += "<link rel='stylesheet' href='./highlight/styles/atom-one-dark.css'>";
 
+	head += "<link rel='stylesheet' href='./highlight/styles/atom-one-dark.css'>";
 }
 else
 {
@@ -89,8 +93,13 @@ else
 	page.style.cssText += "--mygray: #e8e8e8";
 	page.style.cssText += "--mylight-gray: #f2f2f2";
 	page.style.cssText += "--mydark-gray: #e0e0e0";
+	page.style.cssText += "--nav-hover: #fff1c7";
+	page.style.cssText += "--nav-gradient-1: #fceabb";
+	page.style.cssText += "--nav-gradient-2: #ffd754";
+	page.style.cssText += "--display-light: #ffffff"
 	page.style.cssText += "--white: #ffffff";
 	page.style.cssText += "--black: #000000";
+
 	head += "<link rel='stylesheet' href='./highlight/styles/atom-one-light.css'>";
 }
 
