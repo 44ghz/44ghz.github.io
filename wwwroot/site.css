@@ -57,6 +57,7 @@ a.bclink:active {
 	padding-right: 300px;
 	padding-top: 20px;
 	overflow-wrap: break-word;
+	display: inline-flex;
 }
 
 .portrait {
