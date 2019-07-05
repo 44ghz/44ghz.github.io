@@ -5,10 +5,16 @@
   and (min-device-width: 414px)
   and (max-device-width: 736px)
   and (-webkit-min-device-pixel-ratio: 3) {
-		html {
-    /*font-size: calc(16px + 2 * ((100vw - 360px) / 736));*/
-		font-size: 28px;
+	html {
+    font-size: calc(16px + 2 * ((100vw - 360px) / 736));
   }
+	.wrapper {
+		background-color: var(--mylight);
+		padding-left: 100px;
+		padding-right: 100px;
+		padding-top: 20px;
+		overflow-wrap: break-word;
+	}
 }
 
 /* Portrait */
