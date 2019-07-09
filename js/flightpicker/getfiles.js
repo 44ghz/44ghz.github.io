@@ -32,7 +32,7 @@ function send_request(filePath, fnName)
 
 function get_content(fnName, content)
 {
-	// Converting fnName to TitleCase, credit to a8m on StackOverflow!
+	// Converting fnName to TitleCase, credit to a8m on StackOverflow
 	fnName = fnName.split(' ').map(w => w[0].toUpperCase() +
 		w.substr(1).toLowerCase()).join(' ');
 
@@ -44,14 +44,12 @@ function get_content(fnName, content)
 	var removeLoading = document.getElementById("loadingFp" + fnName);
 	removeLoading.parentNode.removeChild(removeLoading);
 
-	document.querySelectorAll('pre code').forEach((block) => {
-			hljs.highlightBlock(block);
-		});
+	// $('code.hljs').each(function(i, block) {
+	// 	hljs.lineNumbersBlock(block);
+	// });
 
-	$(document).ready(function() {
-		$('code.hljs').each(function(i, block) {
-			hljs.lineNumbersBlock(block);
-		});
+	document.querySelectorAll('pre code').forEach((block) => {
+		hljs.highlightBlock(block);
 	});
 };
 
