@@ -34,7 +34,6 @@
 	<script src="js/flightpicker/getfiles.js"></script>
 	<script src="js/getsource.js"></script>
 	<script src="js/multiplescrollbuttons.js"></script>
-	<script src="js/removeupbutton.js"></script>
 
 </head>
 <body>
@@ -123,7 +122,7 @@
 
 		<h1>code</h1>
 		<div class="custom-control custom-switch">
-			<input class="custom-control-input" type="checkbox" id="numberSwitch" checked style="float: right;">
+			<input class="custom-control-input" type="checkbox" id="numberSwitch" style="float: right;">
 			<label class="custom-control-label" for="numberSwitch" style="user-select: none; float: right;">Toggle line numbers</label>
 			<a href="https://github.com/44ghz/flight-picker" target="_blank"><button id="view" class="btn border btn-dark"><i class="fab fa-github"></i>&nbsp&nbspView on GitHub</button></a>
 		</div>
@@ -255,7 +254,7 @@
 		</div> <!-- Accordion -->
 	</div> <!-- Wrapper -->
 	<br>
-	<div class="wrapper" style="pointer-events: none; user-select: none; user-interaction: none; disabled">
+	<div class="wrapper" id="ghlogo" style="pointer-events: none; user-select: none; user-interaction: none; disabled">
 	<div style="text-align: center; padding-bottom: 40px;">
 		<img draggable="false" src="img/ghmark32.png" alt="GitHub Mark" style="opacity: 0.2;"></img><span style="font-size: 12px; opacity: 0.4;">&nbspAPI</span>
 	</div>
