@@ -22,7 +22,7 @@ function get_content()
 	// Creating element for code display
 	$(document.body).append(
 	` <div class="wrapper"><pre><code class="hljs `+ language + `">` + content + `</code></pre></div>
-			<div class="wrapper" style="pointer-events: none; user-select: none; user-interaction: none; disabled">
+			<div class="wrapper" id="ghlogo" style="pointer-events: none; user-select: none; user-interaction: none; disabled">
 				<div style="text-align: center; padding-bottom: 40px;">
 					<img draggable="false" src="img/ghmark32.png" alt="GitHub Mark" style="opacity: 0.2;"></img><span style="font-size: 12px; opacity: 0.4;">&nbspAPI</span>
 				</div>
@@ -37,12 +37,12 @@ function get_content()
 			hljs.highlightBlock(block);
 		});
 
-	// Adding line numbers to each line of highlighted code
-	$(document).ready(function() {
-		$('code.hljs').each(function(i, block) {
-			hljs.lineNumbersBlock(block);
-		});
-	});
+	// // Adding line numbers to each line of highlighted code
+	// $(document).ready(function() {
+	// 	$('code.hljs').each(function(i, block) {
+	// 		hljs.lineNumbersBlock(block);
+	// 	});
+	// });
 
 	// Add the ability to toggle line numbers
 	var script = document.createElement("script");
