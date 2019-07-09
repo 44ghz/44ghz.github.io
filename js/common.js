@@ -55,7 +55,7 @@ var body =
 		<div style="border-left:1px solid var(--mydark); height:42px"></div>
 
 		<script src="js/nightmode.js"></script>
-		<button onclick="toggleNightMode()" id="moon"><i id="moonIcon"></i> <span>Toggle Night Mode<span></button>
+		<button onclick="toggleNightMode()" id="moon"><i id="moonIcon"></i></button>
 
 	</ul>
 </nav>
