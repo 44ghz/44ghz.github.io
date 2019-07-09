@@ -12,11 +12,14 @@
 	--white: #ffffff;
 	--nav-background-img: url("../img/stars.png");
 }
-* {
-	transition: all 0.5;
-}
 
-*:not(#moonIcon) {
+/* *:not(#moonIcon):not(.nav-link):not(.dropdown-item):not(.hljs-keyword) { */
+html, body,
+h1, .bclink, .wrapper, p, .nav-link,
+h3, br, hr,
+#featured, #moon, #ghlogo,
+.display-4, small, .accordion,
+.card, .card-header, .card-body {
 	transition: all 0.5s ease 0s;
 }
 
@@ -131,26 +134,6 @@ a.bclink:active {
 	outline: none;
 }
 
-#moon span {
-  max-width: 0;
-  -webkit-transition: max-width 1s;
-  transition: max-width 1s;
-  display: inline-block;
-  vertical-align: top;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-#moon:hover span {
-	-webkit-transition-delay: 1.3s;
-	transition-delay: 1.3s;
-	max-width: 10rem;
-}
-
-#moon:active {
-	transform: translate(-1px, 1px);
-}
-
 /*||||||||||||||||||||||||||*/
 /*|| Bootstrap overwrites ||*/
 /*||||||||||||||||||||||||||*/
@@ -215,6 +198,7 @@ a.bclink:active {
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;
 	background-color: var(--nav-hover);
+	transition: all 0.1s ease 0s;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
@@ -237,6 +221,7 @@ a.bclink:active {
   color: var(--white);
   text-decoration: none;
   background-color: var(--mydark);
+	transition: all 0.1s ease 0s;
 }
 
 .custom-switch {
