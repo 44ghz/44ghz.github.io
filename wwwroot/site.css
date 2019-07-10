@@ -10,16 +10,18 @@
 	--display-light: #ffffff;
 	--black: #000000;
 	--white: #ffffff;
-	--nav-background-img: url("../img/stars.png");
+	--nav-background-img: url("");
 }
 
 /* *:not(#moonIcon):not(.nav-link):not(.dropdown-item):not(.hljs-keyword) { */
 html, body,
-h1, .bclink, .wrapper, p, .nav-link,
+h1, .bclink, .wrapper, p,
 h3, br, hr,
 #featured, #moon, #ghlogo,
-.display-4, small, .accordion,
-.card, .card-header, .card-body {
+.display-4, .small, .accordion,
+.card, .card-header, .card-body,
+.border-left, .custom-control-label,
+.nav-link {
 	transition: all 0.5s ease 0s;
 }
 
@@ -54,7 +56,8 @@ h3 {
 }
 
 hr {
-	border-color: var(--mygray);
+	border-color: var(--nav-gradient-1);
+	border-width: 2px;
 }
 
 a.bclink {
@@ -91,6 +94,13 @@ a.bclink:active {
 	right: 30px;
 	z-index: 100;
 	font-size: 24px;
+	background: var(--mydark);
+	color: var(--mygray);
+}
+
+#upButton:hover {
+	color: var(--black);
+	background: var(--mylight);
 }
 
 #fpUpButton {
@@ -101,6 +111,13 @@ a.bclink:active {
 	right: 80px;
 	z-index: 99;
 	font-size: 24px;
+	background: var(--mydark);
+	color: var(--mygray);
+}
+
+#fpUpButton:hover {
+	color: var(--black);
+	background: var(--mylight);
 }
 
 ::selection {
@@ -112,8 +129,9 @@ a.bclink:active {
 	font-size: 10px;
 	font-family: "Segoe UI", "Roboto", "Open Sans", "Optima", sans-serif;
 	opacity: 0.9;
-	background-color: var(--mydark);
-	color: var(--mylight);
+	background: linear-gradient(270deg, var(--nav-gradient-1) 0%, var(--nav-gradient-2) 80%), var(--nav-background-img);
+	/* background-color: var(--mydark); */
+	color: var(--black);
 }
 
 #moon {
@@ -132,6 +150,10 @@ a.bclink:active {
 	background-color: transparent;
 	color: var(--black);
 	outline: none;
+}
+
+#ghlogo {
+	font-weight: bolder;
 }
 
 /*||||||||||||||||||||||||||*/
@@ -160,10 +182,6 @@ a.bclink:active {
   overflow-x: scroll;
 }
 
-.btn {
-	text-decoration: bold;
-}
-
 .btn:active {
 	transform: translate(-1px, 1px);
 }
@@ -175,6 +193,7 @@ a.bclink:active {
 }
 
 .btn-light {
+	outline: 0;
 	background-color: var(--mylight);
 	font-size: 14px;
 	color: var(--mydark);
@@ -189,15 +208,21 @@ a.bclink:active {
 	background: linear-gradient(90deg, var(--nav-gradient-1) 0%, var(--nav-gradient-2) 80%), var(--nav-background-img);
 	background-blend-mode: screen;
 	font-size: 18px;
+	height: 50px;
 }
 
 .navbar .nav-item .nav-link {
 	color: var(--mydark);
+	height: 40px;
 }
 
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;
 	background-color: var(--nav-hover);
+	border-bottom: solid;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-color: var(--mydark);
 	transition: all 0.1s ease 0s;
 }
 
@@ -209,7 +234,11 @@ a.bclink:active {
 	background-color: var(--mylight-gray);
 }
 
-.dropdown-menu:hover {
+.dropdown-menu:hover, .dropdown-menu:focus {
+	color: var(--mydark);
+}
+
+#navbardrop {
 	color: var(--mydark);
 }
 
@@ -218,10 +247,10 @@ a.bclink:active {
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
-  color: var(--white);
+  color: var(--black);
   text-decoration: none;
-  background-color: var(--mydark);
-	transition: all 0.1s ease 0s;
+  background-color: var(--nav-hover);
+	transition: all 0.2s ease 0s;
 }
 
 .custom-switch {
@@ -312,4 +341,8 @@ a.bclink:active {
 .spinner-border {
 	border: 0.25em solid var(--mydark);
 	border-right-color: transparent;
+}
+
+.border-left {
+	border-left: 1px solid var(--mygray) !important;
 }

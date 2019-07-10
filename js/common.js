@@ -59,8 +59,17 @@ var body =
 
 	</ul>
 </nav>
-<button onclick="topFunction()" id="upButton" class="btn btn-dark"><i style="padding-top: 0.4rem;" class="fas fa-angle-double-up"></i></button>
+<button onclick="topFunction()" id="upButton" class="btn btn-dark shadow-sm"><i style="padding-top: 0.4rem;" class="fas fa-angle-double-up"></i></button>
 <script src="js/scrolltotop.js"></script>`;
+
+const SUNRISE = 6; // 6am
+const MORNING = 9; // 9am
+const AFTERNOON = 16; // 4pm
+const EVENING = 18; // 6pm
+
+var date = new Date(); // Getting current date and time for use in deciding which day mode to display
+var currentHour = date.getHours();
+var cloudImageNumber = Math.floor(Math.random() * 6); // Random cloud image selection
 
 var page = document.getElementsByTagName("html")[0]; // Get the entire html page as an object
 
@@ -80,6 +89,7 @@ if(localStorage["mode"] === "dark") // Ensure the site retains the color mode
 	page.style.cssText += "--display-light: #1a191f";
 	page.style.cssText += "--white: #000000";
 	page.style.cssText += "--black: #ffffff";
+	page.style.cssText += "--nav-background-img: url(../img/stars.png)";
 
 	head += "<link rel='stylesheet' href='./highlight/styles/atom-one-dark.css'>";
 }
@@ -87,18 +97,41 @@ else
 {
 	// Allows the correct icon to carry through
 	$(document).ready(function() {$("#moonIcon").addClass("fas fa-sun"); return false});
-
 	page.style.cssText = "--mydark: #414345";
 	page.style.cssText += "--mylight: #f9f9f9";
 	page.style.cssText += "--mygray: #e8e8e8";
 	page.style.cssText += "--mylight-gray: #f2f2f2";
 	page.style.cssText += "--mydark-gray: #e0e0e0";
-	page.style.cssText += "--nav-hover: #fff1c7";
-	page.style.cssText += "--nav-gradient-1: #fceabb";
-	page.style.cssText += "--nav-gradient-2: #ffd754";
+
+	if(currentHour <= MORNING && currentHour > SUNRISE) // Orange-yellow theme
+	{
+		page.style.cssText += "--nav-hover: rgba(255, 234, 199, 0.5)";
+		page.style.cssText += "--nav-gradient-1: #fcd8bb";
+		page.style.cssText += "--nav-gradient-2: #ff9b54";
+	}
+	else if(currentHour <= AFTERNOON && currentHour > MORNING) // Light blue theme
+	{
+		page.style.cssText += "--nav-hover: rgba(89, 200, 255, 0.5)";
+		page.style.cssText += "--nav-gradient-1: #adcdff";
+		page.style.cssText += "--nav-gradient-2: #5e9dff";
+	}
+	else if(currentHour <= EVENING && currentHour > AFTERNOON) // Darker orange, reversed
+	{
+		page.style.cssText += "--nav-hover: rgb(179, 86, 16, 0.5)";
+		page.style.cssText += "--nav-gradient-1: #ff8b38";
+		page.style.cssText += "--nav-gradient-2: #ffbd87";
+	}
+	else // Darker orange / lavender
+	{
+		page.style.cssText += "--nav-hover: rgba(140, 61, 0, 0.5)";
+		page.style.cssText += "--nav-gradient-1: #de6910";
+		page.style.cssText += "--nav-gradient-2: #85759c";
+	}
+
 	page.style.cssText += "--display-light: #ffffff"
 	page.style.cssText += "--white: #ffffff";
 	page.style.cssText += "--black: #000000";
+	page.style.cssText += "--nav-background-img: url(../img/clouds" + cloudImageNumber + ".png)";
 
 	head += "<link rel='stylesheet' href='./highlight/styles/atom-one-light.css'>";
 }
