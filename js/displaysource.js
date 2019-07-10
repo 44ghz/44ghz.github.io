@@ -21,7 +21,7 @@ function get_content()
 
 	// Creating element for code display
 	$(document.body).append(
-	` <div class="wrapper"><pre><code class="hljs `+ language + `">` + content + `</code></pre></div>
+	` <div class="wrapper"><pre><code class="hljs `+ language + ` border-left">` + content + `</code></pre></div>
 			<div class="wrapper" id="ghlogo" style="pointer-events: none; user-select: none; user-interaction: none; disabled">
 				<div style="text-align: center; padding-bottom: 40px;">
 					<img draggable="false" src="img/ghmark32.png" alt="GitHub Mark" style="opacity: 0.2;"></img><span style="font-size: 12px; opacity: 0.4;">&nbspAPI</span>

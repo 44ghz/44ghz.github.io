@@ -37,7 +37,7 @@
 
 </head>
 <body>
-	<button onclick="fpTopFunction()" id="fpUpButton" class="btn btn-dark"><i style="padding-top: 0.4rem;" class="fas fa-angle-up"></i></button>
+	<button onclick="fpTopFunction()" id="fpUpButton" class="btn btn-dark shadow-sm"><i style="padding-top: 0.4rem;" class="fas fa-angle-up"></i></button>
 	<div class="wrapper">
 		<div class="bc">
 			<h3>/&nbsp<a class="bclink" href="projects.html">projects</a>&nbsp/&nbsp<a class="bclink" href="schoolwork.html">schoolwork</a>&nbsp/&nbspflight-picker</h3>
@@ -72,11 +72,6 @@
 					<span class="sr-only">Loading...</span>
 				</div>
 			</div>
-			<!-- <ol class="carousel-indicators" id="fpcarouselindicators">
-				<li data-target="#flightpickerCarousel" data-slide-to="0" class="active border"></li>
-				<li data-target="#flightpickerCarousel" data-slide-to="1" class="border"></li>
-				<li data-target="#flightpickerCarousel" data-slide-to="2" class="border"></li>
-			</ol> -->
 
 			<div class="carousel-inner" id="fpcarouselinner">
 			</div>
@@ -124,7 +119,7 @@
 		<div class="custom-control custom-switch">
 			<input class="custom-control-input" type="checkbox" id="numberSwitch" style="float: right;">
 			<label class="custom-control-label" for="numberSwitch" style="user-select: none; float: right;">Toggle line numbers</label>
-			<a href="https://github.com/44ghz/flight-picker" target="_blank"><button id="view" class="btn border btn-dark"><i class="fab fa-github"></i>&nbsp&nbspView on GitHub</button></a>
+			<a href="https://github.com/44ghz/flight-picker" target="_blank"><button id="view" class="btn btn-dark"><i class="fab fa-github"></i>&nbsp&nbspView on GitHub</button></a>
 		</div>
 		<hr>
 
@@ -148,7 +143,7 @@
 						Automatic will find the best flights for all criteria, whereas Manual will find the best flights for criteria provided by the user.
 						Utilizes Tkinter for GUI and pandas for initial data manipulation. Additionally, uses various intermediate files to increase performance of the program, primarily .dat and .csv files. Created for my Programming Languages course in Spring 2019.
 						<br><br>
-						<button class="btn border btn-dark" onclick="download_source('flight-picker', 'main.pyw')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
+						<button class="btn btn-dark" onclick="download_source('flight-picker', 'main.pyw')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
 						<hr>
 						<div class="d-flex justify-content-center">
 							<div class="spinner-border" role="status" id="loadingFpMain">
@@ -171,7 +166,7 @@
 		      <div class="card-body" id="fpDataretrievalBody">
 						Testing
 						<br><br>
-						<button class="btn border btn-dark" onclick="download_source('flight-picker', '/modules/dataretrieval.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
+						<button class="btn btn-dark" onclick="download_source('flight-picker', '/modules/dataretrieval.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
 						<hr>
 						<div class="d-flex justify-content-center">
 							<div class="spinner-border" role="status" id="loadingFpDataretrieval">
@@ -194,7 +189,7 @@
 		      <div class="card-body" id="fpOptionsBody">
 						Testing
 						<br><br>
-						<button class="btn border btn-dark" onclick="download_source('flight-picker', '/modules/options.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
+						<button class="btn btn-dark" onclick="download_source('flight-picker', '/modules/options.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
 						<hr>
 						<div class="d-flex justify-content-center">
 							<div class="spinner-border" role="status" id="loadingFpOptions">
@@ -217,7 +212,7 @@
 		      <div class="card-body" id="fpResultsBody">
 						Testing
 						<br><br>
-						<button class="btn border btn-dark" onclick="download_source('flight-picker', '/modules/results.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
+						<button class="btn btn-dark" onclick="download_source('flight-picker', '/modules/results.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
 						<hr>
 						<div class="d-flex justify-content-center">
 							<div class="spinner-border" role="status" id="loadingFpResults">
@@ -240,7 +235,7 @@
 		      <div class="card-body" id="fpTkfunctionsBody">
 						Testing
 						<br><br>
-						<button class="btn border btn-dark" onclick="download_source('flight-picker', '/modules/tkfunctions.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
+						<button class="btn btn-dark" onclick="download_source('flight-picker', '/modules/tkfunctions.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
 						<hr>
 						<div class="d-flex justify-content-center">
 							<div class="spinner-border" role="status" id="loadingFpTkfunctions">

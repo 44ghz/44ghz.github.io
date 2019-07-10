@@ -38,7 +38,7 @@ function get_content(fnName, content)
 
 	// Creating element for code display
 	$(document.getElementById("fp" + fnName + "Body")).append(
-	` <pre><code class="hljs python">` + content + `</code></pre>`);
+	` <pre><code class="hljs python border-left">` + content + `</code></pre>`);
 
 	// Remove the loading circle when the content is loaded
 	var removeLoading = document.getElementById("loadingFp" + fnName);
