@@ -2,11 +2,9 @@ function toggleNightMode()
 {
 	var date = new Date(); // Getting current date and time for use in deciding which day mode to display
 	var currentHour = date.getHours();
-	var cloudImageNumber = Math.floor(Math.random() * 6); // Random cloud image selection
+	var cloudImageNumber = Math.floor(Math.random() * 3); // Random cloud image selection
 
 	var page = document.getElementsByTagName("html")[0]; // Get the entire html page as an object
-
-	console.log()
 
 	if(localStorage["mode"] === "dark") // If the site is in dark mode, make it light
 	{
@@ -85,9 +83,9 @@ function toggleNightMode()
 			$("#moonIcon").removeClass("fas fa-sun"); // Swapping moon icon
 			$("#moonIcon").addClass("fas fa-moon");
 		}, 200);
+
 	}
 };
-		// $("#moon").click(function(){$("#moonIcon").slideDown(); $("#moonIcon").slideUp()});
 		$(document).ready(function(){$("#moon")
 			.click(function(){
 				$("#moonIcon").slideUp("fast"); $("#moonIcon").slideDown("fast")})});

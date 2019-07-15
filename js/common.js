@@ -10,11 +10,11 @@ var head =
 <meta name="theme-color" content="#ffffff">`;
 
 var body =
-`	<p class="display-4">
+`
+	<p id="nameHeader" class="display-4">
 		Placeholder Text
 		<small style="font-size: 14px">test</small>
 	</p>
-
 
 <nav class="navbar navbar-expand-sm navbar-dark justify-content-center sticky-top shadow-sm">
 	<ul class="navbar-nav">
@@ -34,9 +34,9 @@ var body =
 			</a>
 			<div class="dropdown-menu">
 				<a class="dropdown-item" href="projects.html">Project Home</a>
-
-				<a class="dropdown-item" href="schoolwork.html">Schoolwork</a>
+				<a class="dropdown-item" href="website.html">Website</a>
 				<a class="dropdown-item" href="greenscreen.html">Greenscreen</a>
+				<a class="dropdown-item" href="schoolwork.html">Schoolwork</a>
 			</div>
 		</li>
 
@@ -59,24 +59,26 @@ var body =
 
 	</ul>
 </nav>
+
 <button onclick="topFunction()" id="upButton" class="btn btn-dark shadow-sm"><i style="padding-top: 0.4rem;" class="fas fa-angle-double-up"></i></button>
 <script src="js/scrolltotop.js"></script>`;
 
 const SUNRISE = 6; // 6am
-const MORNING = 9; // 9am
+const MORNING = 8; // 9am
 const AFTERNOON = 16; // 4pm
 const EVENING = 18; // 6pm
 
 var date = new Date(); // Getting current date and time for use in deciding which day mode to display
 var currentHour = date.getHours();
-var cloudImageNumber = Math.floor(Math.random() * 6); // Random cloud image selection
+var cloudImageNumber = Math.floor(Math.random() * 3); // Random cloud image selection
 
 var page = document.getElementsByTagName("html")[0]; // Get the entire html page as an object
 
 if(localStorage["mode"] === "dark") // Ensure the site retains the color mode
 {
 	// Allows the correct icon to carry through
-	$(document).ready(function() {$("#moonIcon").addClass("fas fa-moon"); return false});
+
+	$(document).ready(function() {$("#moonIcon").addClass("fas fa-moon")});
 
 	page.style.cssText = "--mydark: #ced0d9";
 	page.style.cssText += "--mylight: #282c34";
@@ -92,6 +94,7 @@ if(localStorage["mode"] === "dark") // Ensure the site retains the color mode
 	page.style.cssText += "--nav-background-img: url(../img/stars.png)";
 
 	head += "<link rel='stylesheet' href='./highlight/styles/atom-one-dark.css'>";
+
 }
 else
 {
@@ -134,6 +137,7 @@ else
 	page.style.cssText += "--nav-background-img: url(../img/clouds" + cloudImageNumber + ".png)";
 
 	head += "<link rel='stylesheet' href='./highlight/styles/atom-one-light.css'>";
+
 }
 
 document.write(body);
