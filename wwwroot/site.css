@@ -162,6 +162,63 @@ a.bclink:active {
 	border-color: var(--nav-hover);
 }
 
+
+
+
+/*||||||||||||||||*/
+/*|| Chess Game ||*/
+/*||||||||||||||||*/
+
+#chessBoard {
+	margin: 0 auto;
+	border-style: inset;
+	background-color: #f9f9f9;
+}
+
+td {
+	border: 2px solid;
+	border-color: black;
+	border-radius: 10px;
+	width: 80px;
+	height: 80px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 3rem;
+}
+
+td:hover {
+	background-color: rgba(0, 0, 255, 0.3);
+	transition: all 0.2s ease 0s;
+}
+
+.whitePlace {
+	background: #ffe7b8;
+	transition: all 0.2s ease 0s;
+}
+
+.blackPlace {
+	background: #663800;
+	transition: all 0.2s ease 0s;
+}
+
+.whitePiece {
+	text-shadow: 0 0 2px black;
+	color: white;
+}
+
+.blackPiece {
+	text-shadow: 0 0 2px gray;
+}
+
+.available {
+	background-color: rgba(150, 0, 255, 0.15);
+  background-blend-mode: screen;
+	transition: all 0.2s ease 0s;
+}
+
+
+
+
 /*||||||||||||||||||||||||||*/
 /*|| Bootstrap overwrites ||*/
 /*||||||||||||||||||||||||||*/
