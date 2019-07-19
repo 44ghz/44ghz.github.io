@@ -11,9 +11,11 @@
 	--black: #000000;
 	--white: #ffffff;
 	--nav-background-img: url("");
+	--blackPlaceColor: rgba(102, 56, 0, 1);
+	--whitePlaceColor: rgba(255, 231, 184, 1);
+	--placeHighlightColor: rgba(100, 100, 190, 0.8);
 }
 
-/* *:not(#moonIcon):not(.nav-link):not(.dropdown-item):not(.hljs-keyword) { */
 html, body,
 h1, .bclink, .wrapper, p,
 h3, br, hr,
@@ -187,18 +189,30 @@ td {
 }
 
 td:hover {
-	background-color: rgba(0, 0, 255, 0.3);
 	transition: all 0.2s ease 0s;
+	background: rgba(0, 0, 255, 0.3);
+}
+
+.whitePlace.available:hover, .blackPlace.available:hover {
+	background: rgba(0, 0, 255, 0.3);
 }
 
 .whitePlace {
-	background: #ffe7b8;
-	transition: all 0.2s ease 0s;
+	background: rgba(255, 231, 184, 1);
 }
 
 .blackPlace {
-	background: #663800;
-	transition: all 0.2s ease 0s;
+	background: rgba(102, 56, 0, 1);
+}
+
+.whitePlace.available {
+	background: linear-gradient(var(--whitePlaceColor) 0%, var(--whitePlaceColor) 100%), var(--placeHighlightColor);
+	background-blend-mode: overlay;
+}
+
+.blackPlace.available {
+	background: linear-gradient(var(--blackPlaceColor) 0%, var(--blackPlaceColor) 100%), var(--placeHighlightColor);
+	background-blend-mode: overlay;
 }
 
 .whitePiece {
@@ -209,13 +223,6 @@ td:hover {
 .blackPiece {
 	text-shadow: 0 0 2px gray;
 }
-
-.available {
-	background-color: rgba(150, 0, 255, 0.15);
-  background-blend-mode: screen;
-	transition: all 0.2s ease 0s;
-}
-
 
 
 
