@@ -13,7 +13,7 @@
 	--nav-background-img: url("");
 	--blackPlaceColor: rgba(102, 56, 0, 1);
 	--whitePlaceColor: rgba(255, 231, 184, 1);
-	--placeHighlightColor: rgba(100, 100, 190, 0.8);
+	--placeHighlightColor: rgba(50, 100, 190, 0.3);
 }
 
 html, body,
@@ -177,7 +177,7 @@ a.bclink:active {
 	background-color: #f9f9f9;
 }
 
-td {
+#chessBoard td {
 	border: 2px solid;
 	border-color: black;
 	border-radius: 10px;
@@ -213,6 +213,15 @@ td:hover {
 .blackPlace.available {
 	background: linear-gradient(var(--blackPlaceColor) 0%, var(--blackPlaceColor) 100%), var(--placeHighlightColor);
 	background-blend-mode: overlay;
+}
+
+.availableCircle {
+	width: 40px;
+  height: 40px;
+  background: gray;
+  border-radius: 50%;
+	margin: 0 auto;
+	opacity: 0.7;
 }
 
 .whitePiece {

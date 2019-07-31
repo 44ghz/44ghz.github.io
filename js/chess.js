@@ -158,6 +158,7 @@ function add_icon(pos, piece)
 
 
 var pieceSelected = false;
+var pawnArray = new Array();
 var availableClass = "";
 var removableClass = "";
 var availableShape = "";
@@ -186,35 +187,7 @@ function toggle_available_spaces()
 	}
 };
 
-// function toggle_available_spaces()
-// {
-// 	if(selected === false)
-// 	{
-// 		selected = true;
-// 		availableClass = "available";
-// 		availableShape = "availableCircle";
-// 		removableShape = "";
-// 		removableClass = "";
-// 	}
-// 	else
-// 	{
-// 		selected = false;
-// 		availableClass= "";
-// 		availableShape = "";
-// 		removableClass = "available";
-// 		removableShape = "#availableCircle";
-// 		remove_available_spaces();
-// 	}
-//
-// };
-//
-// function remove_available_spaces()
-// {
-// 	console.log(removableShape);
-// 	$(removableShape).remove();
-// 	$(".available").removeClass(removableClass);
-// }
-
+{ // Bracketed to hide during editing :)
 $(document.body).on("click", ".available", function(){var gotoPlace = $(this).attr("id"); move_piece(gotoPlace);});
 
 $(document.body).on("click", ".blackRook0", function(){rook_movement(".blackRook0", "black", "white");});
@@ -238,66 +211,106 @@ $(document.body).on("click", ".blackQueen", function(){queen_movement(".blackQue
 $(document.body).on("click", ".whiteKing", function(){king_movement(".whiteKing", "white", "black");});
 $(document.body).on("click", ".blackKing", function(){king_movement(".blackKing", "black", "white");});
 
-$(document.body).on("click", ".blackPawn0", function(){});
+$(document.body).on("click", ".whitePawn0", function(){pawn_movement(".whitePawn0", "white", "black");});
+$(document.body).on("click", ".whitePawn1", function(){pawn_movement(".whitePawn1", "white", "black");});
+$(document.body).on("click", ".whitePawn2", function(){pawn_movement(".whitePawn2", "white", "black");});
+$(document.body).on("click", ".whitePawn3", function(){pawn_movement(".whitePawn3", "white", "black");});
+$(document.body).on("click", ".whitePawn4", function(){pawn_movement(".whitePawn4", "white", "black");});
+$(document.body).on("click", ".whitePawn5", function(){pawn_movement(".whitePawn5", "white", "black");});
+$(document.body).on("click", ".whitePawn6", function(){pawn_movement(".whitePawn6", "white", "black");});
+$(document.body).on("click", ".whitePawn7", function(){pawn_movement(".whitePawn7", "white", "black");});
 
+$(document.body).on("click", ".blackPawn0", function(){pawn_movement(".blackPawn0", "black", "white");});
+$(document.body).on("click", ".blackPawn1", function(){pawn_movement(".blackPawn1", "black", "white");});
+$(document.body).on("click", ".blackPawn2", function(){pawn_movement(".blackPawn2", "black", "white");});
+$(document.body).on("click", ".blackPawn3", function(){pawn_movement(".blackPawn3", "black", "white");});
+$(document.body).on("click", ".blackPawn4", function(){pawn_movement(".blackPawn4", "black", "white");});
+$(document.body).on("click", ".blackPawn5", function(){pawn_movement(".blackPawn5", "black", "white");});
+$(document.body).on("click", ".blackPawn6", function(){pawn_movement(".blackPawn6", "black", "white");});
+$(document.body).on("click", ".blackPawn7", function(){pawn_movement(".blackPawn7", "black", "white");});
+}
+
+function check_piece_surroundings(inputPosition, friendlyColor)
+{
+	try
+	{
+		// If the projected position doesn't have a friendly piece in it, we can move to it
+		if(!$(inputPosition).attr('class').includes(friendlyColor + "Piece"))
+		{
+			add_available_space(inputPosition);
+		}
+	}
+	catch(TypeError) // If the position is out of bounds
+	{} // Do nothing, don't attempt to activate the place
+};
+
+function add_available_space(inputPosition)
+{
+	$(inputPosition).removeClass(removableClass).addClass(availableClass);
+	if(!$(inputPosition).attr('class').includes("Piece")) // If the place doesn't have a piece on it
+	{
+		$(inputPosition).append("<div class=" + availableShape + "></div>");
+	}
+};
 
 function knight_movement(piece, friendlyColor, opponentColor)
 {
-	toggle_available_spaces();
-	selectedPiece = piece.substring(1, piece.length);
 	var currentPos = $(piece).attr('id'); // Get the current position of the piece
-	var projectedPosition;
-	var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
-	var pieceX = parseInt(currentPos.substring(0, 1), 10);
 
-	function check_knight_position(inputPosition)
+	try
 	{
-		try
-		{
-			// If the projected position doesn't have a friendly piece in it, we can move to it
-			console.log($(inputPosition).attr('class'));
-			if(!$(inputPosition).attr('class').includes(friendlyColor + "Piece"))
-			{
-				$(inputPosition).removeClass(removableClass).addClass(availableClass);
-				if(!$(inputPosition).attr('class').includes("Piece")) // If the place doesn't have a piece on it
-				{
-					$(inputPosition).append("<div class=" + availableShape + "></div>");
-				}
-			}
-		}
-		catch(TypeError) // If the position is out of bounds
-		{} // Do nothing, don't attempt to activate the place
+		var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
+		var pieceX = parseInt(currentPos.substring(0, 1), 10);
 	}
+	catch(TypeError)
+	{
+		return; // If not returned, the player(s) will have to click an extra time to reset the piece selection
+	}
+
+	toggle_available_spaces();
+
+	selectedPiece = piece.substring(1, piece.length);
+	var projectedPosition;
 
 	// Add highlighting to the knight's space
 	$("#" + currentPos).removeClass(removableClass).addClass(availableClass);
 
 	projectedPosition = ("#" + (pieceX - 2) + (pieceY - 1)); // -2x -1y
-	check_knight_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + (pieceX - 2) + (pieceY + 1)); // -2x +1y
-	check_knight_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + (pieceX + 2) + (pieceY - 1)); // +2x -1y
-	check_knight_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + (pieceX + 2) + (pieceY + 1)); // +2x +1y
-	check_knight_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + (pieceX - 1) + (pieceY + 2)); // -1x +2y
-	check_knight_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + (pieceX - 1) + (pieceY - 2)); // -1x -2y
-	check_knight_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + (pieceX + 1) + (pieceY - 2)); // +1x -2y
-	check_knight_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + (pieceX + 1) + (pieceY + 2)); // +1x +2y
-	check_knight_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 };
 
 function rook_movement(piece, friendlyColor, opponentColor)
 {
-	toggle_available_spaces();
-	selectedPiece = piece.substring(1, piece.length);
 	var currentPos = $(piece).attr('id'); // Get the current position of the piece
+
+	try
+	{
+		var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
+		var pieceX = parseInt(currentPos.substring(0, 1), 10);
+	}
+	catch(TypeError)
+	{
+		return; // If not returned, the player(s) will have to click an extra time to reset the piece selection
+	}
+
+	toggle_available_spaces();
+
+	selectedPiece = piece.substring(1, piece.length);
 	var projectedPosition;
-	var pieceY = currentPos.substring(1, 2);
-	var pieceX = currentPos.substring(0, 1);
 
 	var yPositive = pieceY;
 	var yNegative = pieceY;
@@ -315,7 +328,7 @@ function rook_movement(piece, friendlyColor, opponentColor)
 			break;
 		}
 
-		$(projectedPosition).removeClass(removableClass).addClass(availableClass);
+		add_available_space(projectedPosition);
 		xPositive++;
 
 		// If the next piece is of the opposite color, allow it to be captured
@@ -335,7 +348,7 @@ function rook_movement(piece, friendlyColor, opponentColor)
 			break;
 		}
 
-		$(projectedPosition).removeClass(removableClass).addClass(availableClass);
+		add_available_space(projectedPosition);
 		xNegative--;
 
 		// If the next piece is of the opposite color, allow it to be captured
@@ -356,7 +369,7 @@ function rook_movement(piece, friendlyColor, opponentColor)
 			break;
 		}
 
-		$(projectedPosition).removeClass(removableClass).addClass(availableClass);
+		add_available_space(projectedPosition);
 		yPositive++;
 
 		// If the next piece is of the opposite color, allow it to be captured
@@ -376,7 +389,7 @@ function rook_movement(piece, friendlyColor, opponentColor)
 			break;
 		}
 
-		$(projectedPosition).removeClass(removableClass).addClass(availableClass);
+		add_available_space(projectedPosition);
 		yNegative--;
 
 		// If the next piece is of the opposite color, allow it to be captured
@@ -390,13 +403,22 @@ function rook_movement(piece, friendlyColor, opponentColor)
 
 function bishop_movement(piece, friendlyColor, opponentColor)
 {
-	toggle_available_spaces();
-	selectedPiece = piece.substring(1, piece.length);
 	var currentPos = $(piece).attr('id'); // Get the current position of the piece
-	var projectedPosition;
-	var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
-	var pieceX = parseInt(currentPos.substring(0, 1), 10);
 
+	try
+	{
+		var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
+		var pieceX = parseInt(currentPos.substring(0, 1), 10);
+	}
+	catch(TypeError)
+	{
+		return; // If not returned, the player(s) will have to click an extra time to reset the piece selection
+	}
+
+	toggle_available_spaces();
+
+	selectedPiece = piece.substring(1, piece.length);
+	var projectedPosition;
 	var currentX = pieceX;
 	var currentY = pieceY;
 
@@ -411,7 +433,7 @@ function bishop_movement(piece, friendlyColor, opponentColor)
 			break;
 		}
 
-		$(projectedPosition).removeClass(removableClass).addClass(availableClass);
+		add_available_space(projectedPosition);
 		currentX--;
 		currentY++;
 
@@ -436,7 +458,7 @@ function bishop_movement(piece, friendlyColor, opponentColor)
 			break;
 		}
 
-		$(projectedPosition).removeClass(removableClass).addClass(availableClass);
+		add_available_space(projectedPosition);
 		currentX++;
 		currentY++;
 
@@ -461,7 +483,7 @@ function bishop_movement(piece, friendlyColor, opponentColor)
 			break;
 		}
 
-		$(projectedPosition).removeClass(removableClass).addClass(availableClass);
+		add_available_space(projectedPosition);
 		currentX++;
 		currentY--;
 
@@ -486,7 +508,7 @@ function bishop_movement(piece, friendlyColor, opponentColor)
 			break;
 		}
 
-		$(projectedPosition).removeClass(removableClass).addClass(availableClass);
+		add_available_space(projectedPosition);
 		currentX--;
 		currentY--;
 
@@ -498,7 +520,7 @@ function bishop_movement(piece, friendlyColor, opponentColor)
 	}
 };
 
-function queen_movement(piece, friendlyColor, opponentColor)
+function queen_movement(piece, friendlyColor, opponentColor) // FIX
 {
 	bishop_movement(piece, friendlyColor, opponentColor);
 	rook_movement(piece, friendlyColor, opponentColor);
@@ -506,52 +528,99 @@ function queen_movement(piece, friendlyColor, opponentColor)
 
 function king_movement(piece, friendlyColor, opponentColor)
 {
-	toggle_available_spaces();
-	selectedPiece = piece.substring(1, piece.length);
 	var currentPos = $(piece).attr('id'); // Get the current position of the piece
-	var projectedPosition;
-	var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
-	var pieceX = parseInt(currentPos.substring(0, 1), 10);
 
-	function check_king_position(inputPosition)
+	try
 	{
-		try
-		{
-			// If the projected position doesn't have a friendly piece in it, we can move to it
-			if(!$(inputPosition).attr('class').includes(friendlyColor + "Piece"))
-			{
-				$(inputPosition).removeClass(removableClass).addClass(availableClass);
-			}
-		}
-		catch(TypeError) // If the position is out of bounds
-		{} // Do nothing, don't attempt to activate the place
-	};
+		var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
+		var pieceX = parseInt(currentPos.substring(0, 1), 10);
+	}
+	catch(TypeError)
+	{
+		return; // If not returned, the player(s) will have to click an extra time to reset the piece selection
+	}
+
+	toggle_available_spaces();
+
+	selectedPiece = piece.substring(1, piece.length);
+	var projectedPosition;
 
 	// Add the current position as an available place
 	$("#" + currentPos).removeClass(removableClass).addClass(availableClass);
 
 	projectedPosition = ("#" + (pieceX - 1) + (pieceY - 1)); // -1x -1y
-	check_king_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + (pieceX - 1) + (pieceY + 1)); // -1x +1y
-	check_king_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + (pieceX + 1) + (pieceY - 1)); // +1x -1y
-	check_king_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + (pieceX + 1) + (pieceY + 1)); // +1x +1y
-	check_king_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + (pieceX - 1) + pieceY); // -1x
-	check_king_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + (pieceX + 1) + pieceY); // +1x
-	check_king_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + pieceX + (pieceY + 1)); // +1y
-	check_king_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 	projectedPosition = ("#" + pieceX + (pieceY - 1)); // -1y
-	check_king_position(projectedPosition);
+	check_piece_surroundings(projectedPosition, friendlyColor);
 
 };
 
 function pawn_movement(piece, friendlyColor, opponentColor)
 {
+	var currentPos = $(piece).attr('id'); // Get the current position of the piece
 
+	try
+	{
+		var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
+		var pieceX = parseInt(currentPos.substring(0, 1), 10);
+	}
+	catch(TypeError)
+	{
+		return; // If not returned, the player(s) will have to click an extra time to reset the piece selection
+	}
+
+	toggle_available_spaces();
+
+	selectedPiece = piece.substring(1, piece.length);
+	var projectedPosition;
+	var moveDirection = 0; // Depends on the color of the pawn. White -> moveDirection = negative; Black -> moveDirection = positive
+
+	if(friendlyColor == "white")
+	{
+		moveDirection = -1;
+	}
+	else
+	{
+		moveDirection = 1;
+	}
+
+	// Add the current position as an available place
+	$("#" + currentPos).removeClass(removableClass).addClass(availableClass);
+
+	projectedPosition = ("#" + (pieceX + moveDirection) + (pieceY));
+	check_piece_surroundings(projectedPosition, friendlyColor);
+
+	if(check_pawn_movement(piece)) // If the pawn hasn't moved yet, it can move two spaces
+	{
+		projectedPosition = ("#" + (pieceX + (moveDirection * 2)) + (pieceY));
+		check_piece_surroundings(projectedPosition, friendlyColor);
+	}
+
+};
+
+function check_pawn_movement(inputPiece)
+{
+	if(pawnArray.includes(inputPiece)) // If the pawn has moved before
+	{
+		return false; // It's only allowed to move one space
+	}
+	else
+	{
+		pawnArray.push(inputPiece); // Add it to the array
+		return true; // It's allowed to move two spaces, return true
+	}
 };
 
 function move_piece(id) // id: place to which we're moving
@@ -568,13 +637,21 @@ function move_piece(id) // id: place to which we're moving
 	currentIconName = currentIcon.substring(currentIcon.lastIndexOf("-") + 1); // Get the type of piece from the icon
 
 	var classes = $("#" + currentPos).attr("class"); // Get all classes for the current position
+	var projectedClasses = $("#" + id).attr("class"); // Get all classes for the position to which we're moving
+
 	classes = classes.substring(11, classes.length); // Take everything after the black/white Place class
-	classes = classes.replace("available", "");
+	projectedClasses = projectedClasses.substring(11, projectedClasses.length);
+
+	classes = classes.replace("available", ""); // Remove the available class from them
+	projectedClassse = projectedClasses.replace("available", "");
 
 	$("#" + currentPos).removeClass(classes);
 	$("#" + currentPos + "Icon").removeClass();
 
+	$("#" + id).removeClass(projectedClasses);
+	$("#" + id + "Icon").removeClass();
+
 	$("#" + id).addClass(classes);
 
-	add_icon(id, currentIcon);
-}
+	add_icon(id, currentIconName);
+};
