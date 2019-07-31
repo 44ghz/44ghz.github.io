@@ -157,36 +157,63 @@ function add_icon(pos, piece)
 
 
 
-var selected = false;
+var pieceSelected = false;
 var availableClass = "";
-var removableClass = "available";
-var selectedPiece = "";
+var removableClass = "";
+var availableShape = "";
+var removableShape = "";
+var selectedPiece = ""; // The id that's currently selected
 
 function toggle_available_spaces()
 {
-	if(selected === false)
+	if(!pieceSelected) // If a piece was just selected
 	{
-		console.log("not active");
-		selected = true;
+		pieceSelected = true; // Set the piece as selected
 		availableClass = "available";
+		availableShape = "availableCircle";
 		removableClass = "";
+		removableShape = "";
 	}
-	else
+	else // If a piece was already selected and the player selected something else
 	{
-		console.log("active");
-		selected = false;
-		availableClass= "";
+		pieceSelected = false;
 		removableClass = "available";
-		remove_available_spaces();
+		removableShape = "availableCircle";
+		availableClass = "";
+		availableShape = "";
+		$("." + removableClass).removeClass(removableClass);
+		$("." + removableShape).removeClass(removableShape);
 	}
-
 };
 
-function remove_available_spaces()
-{
-	console.log("removable class: " + removableClass);
-	$(".available").removeClass(removableClass);
-}
+// function toggle_available_spaces()
+// {
+// 	if(selected === false)
+// 	{
+// 		selected = true;
+// 		availableClass = "available";
+// 		availableShape = "availableCircle";
+// 		removableShape = "";
+// 		removableClass = "";
+// 	}
+// 	else
+// 	{
+// 		selected = false;
+// 		availableClass= "";
+// 		availableShape = "";
+// 		removableClass = "available";
+// 		removableShape = "#availableCircle";
+// 		remove_available_spaces();
+// 	}
+//
+// };
+//
+// function remove_available_spaces()
+// {
+// 	console.log(removableShape);
+// 	$(removableShape).remove();
+// 	$(".available").removeClass(removableClass);
+// }
 
 $(document.body).on("click", ".available", function(){var gotoPlace = $(this).attr("id"); move_piece(gotoPlace);});
 
@@ -228,9 +255,14 @@ function knight_movement(piece, friendlyColor, opponentColor)
 		try
 		{
 			// If the projected position doesn't have a friendly piece in it, we can move to it
+			console.log($(inputPosition).attr('class'));
 			if(!$(inputPosition).attr('class').includes(friendlyColor + "Piece"))
 			{
 				$(inputPosition).removeClass(removableClass).addClass(availableClass);
+				if(!$(inputPosition).attr('class').includes("Piece")) // If the place doesn't have a piece on it
+				{
+					$(inputPosition).append("<div class=" + availableShape + "></div>");
+				}
 			}
 		}
 		catch(TypeError) // If the position is out of bounds
@@ -524,16 +556,20 @@ function pawn_movement(piece, friendlyColor, opponentColor)
 
 function move_piece(id) // id: place to which we're moving
 {
+	toggle_available_spaces();
 	var currentPos = $("." + selectedPiece).attr("id"); // Get the current position of the piece
+
+	if(currentPos === id)
+	{
+		toggle_available_spaces();
+	}
+
 	var currentIcon = $("#" + currentPos + "Icon").attr("class");
 	currentIconName = currentIcon.substring(currentIcon.lastIndexOf("-") + 1); // Get the type of piece from the icon
 
 	var classes = $("#" + currentPos).attr("class"); // Get all classes for the current position
 	classes = classes.substring(11, classes.length); // Take everything after the black/white Place class
 	classes = classes.replace("available", "");
-	// $(".available").removeClass("available");
-
-	console.log("classes: " + classes);
 
 	$("#" + currentPos).removeClass(classes);
 	$("#" + currentPos + "Icon").removeClass();
@@ -541,5 +577,4 @@ function move_piece(id) // id: place to which we're moving
 	$("#" + id).addClass(classes);
 
 	add_icon(id, currentIcon);
-	remove_available_spaces();
 }
