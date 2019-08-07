@@ -22,6 +22,12 @@ class Space
 	}
 };
 
+
+
+////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////    GENERATION    ////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 function generate_board()
 {
 	/////////////////////////////////////////////////////////////////////////////////////////////
@@ -85,9 +91,9 @@ function add_pieces()
 	}
 
 	// Adding ROOK
-	add_icon("44", "rook", "black"); // 00
-	 $("#44").addClass("rook blackRook0 blackPiece");
-	  board[4][4].set_piece("blackRook0");
+	add_icon("00", "rook", "black"); // 00
+	 $("#00").addClass("rook blackRook0 blackPiece");
+	  board[0][0].set_piece("blackRook0");
 	add_icon("07", "rook", "black"); // 07
 	 $("#07").addClass("rook blackRook1 blackPiece");
 	  board[0][7].set_piece("blackRook1");
@@ -142,9 +148,9 @@ function add_pieces()
 
 
 	// Adding KING
-	add_icon("43", "king", "black"); // 04
-   $("#43").addClass("king blackKing blackPiece");
-	  board[4][3].set_piece("blackKing");
+	add_icon("04", "king", "black"); // 04
+   $("#04").addClass("king blackKing blackPiece");
+	  board[0][4].set_piece("blackKing");
 	add_icon("74", "king", "white"); // 74
    $("#74").addClass("king whiteKing whitePiece");
 	  board[7][4].set_piece("whiteKing");
@@ -157,38 +163,12 @@ function add_icon(pos, piece)
 
 
 
-var pieceSelected = false;
-var pawnArray = new Array();
-var availableClass = "";
-var removableClass = "";
-var availableShape = "";
-var removableShape = "";
-var selectedPiece = ""; // The id that's currently selected
-
-function toggle_available_spaces()
-{
-	if(!pieceSelected) // If a piece was just selected
-	{
-		pieceSelected = true; // Set the piece as selected
-		availableClass = "available";
-		availableShape = "availableCircle";
-		removableClass = "";
-		removableShape = "";
-	}
-	else // If a piece was already selected and the player selected something else
-	{
-		pieceSelected = false;
-		removableClass = "available";
-		removableShape = "availableCircle";
-		availableClass = "";
-		availableShape = "";
-		$("." + removableClass).removeClass(removableClass);
-		$("." + removableShape).removeClass(removableShape);
-	}
-};
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////    GAMEPLAY    /////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 { // Bracketed to hide during editing :)
-$(document.body).on("click", ".available", function(){var gotoPlace = $(this).attr("id"); move_piece(gotoPlace);});
+$(document.body).on("click", ".available", function(){var gotoPlace = $(this).attr("id");move_piece(gotoPlace)});
 
 $(document.body).on("click", ".blackRook0", function(){rook_movement(".blackRook0", "black", "white");});
 $(document.body).on("click", ".blackRook1", function(){rook_movement(".blackRook1", "black", "white");});
@@ -230,6 +210,36 @@ $(document.body).on("click", ".blackPawn6", function(){pawn_movement(".blackPawn
 $(document.body).on("click", ".blackPawn7", function(){pawn_movement(".blackPawn7", "black", "white");});
 }
 
+var pieceSelected = false;
+var pawnArray = new Array();
+var availableClass = "";
+var removableClass = "";
+var availableShape = "";
+var removableShape = "";
+var selectedPiece = ""; // The id that's currently selected
+
+function toggle_available_spaces()
+{
+	if(!pieceSelected) // If a piece was just selected
+	{
+		pieceSelected = true; // Set the piece as selected
+		availableClass = "available";
+		availableShape = "availableCircle";
+		removableClass = "";
+		removableShape = "";
+	}
+	else // If a piece was already selected and the player selected something else
+	{
+		pieceSelected = false;
+		removableClass = "available";
+		removableShape = "availableCircle";
+		availableClass = "";
+		availableShape = "";
+		$("." + removableClass).removeClass(removableClass);
+		$("." + removableShape).removeClass(removableShape);
+	}
+};
+
 function check_piece_surroundings(inputPosition, friendlyColor)
 {
 	try
@@ -262,7 +272,7 @@ function knight_movement(piece, friendlyColor, opponentColor)
 		var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
 		var pieceX = parseInt(currentPos.substring(0, 1), 10);
 	}
-	catch(TypeError)
+	catch(TypeError) // If the piece no longer exists
 	{
 		return; // If not returned, the player(s) will have to click an extra time to reset the piece selection
 	}
@@ -302,7 +312,7 @@ function rook_movement(piece, friendlyColor, opponentColor)
 		var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
 		var pieceX = parseInt(currentPos.substring(0, 1), 10);
 	}
-	catch(TypeError)
+	catch(TypeError) // If the piece no longer exists
 	{
 		return; // If not returned, the player(s) will have to click an extra time to reset the piece selection
 	}
@@ -410,7 +420,7 @@ function bishop_movement(piece, friendlyColor, opponentColor)
 		var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
 		var pieceX = parseInt(currentPos.substring(0, 1), 10);
 	}
-	catch(TypeError)
+	catch(TypeError) // If the piece no longer exists
 	{
 		return; // If not returned, the player(s) will have to click an extra time to reset the piece selection
 	}
@@ -523,6 +533,7 @@ function bishop_movement(piece, friendlyColor, opponentColor)
 function queen_movement(piece, friendlyColor, opponentColor) // FIX
 {
 	bishop_movement(piece, friendlyColor, opponentColor);
+	toggle_available_spaces();
 	rook_movement(piece, friendlyColor, opponentColor);
 };
 
@@ -535,7 +546,7 @@ function king_movement(piece, friendlyColor, opponentColor)
 		var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
 		var pieceX = parseInt(currentPos.substring(0, 1), 10);
 	}
-	catch(TypeError)
+	catch(TypeError) // If the piece no longer exists
 	{
 		return; // If not returned, the player(s) will have to click an extra time to reset the piece selection
 	}
@@ -576,7 +587,7 @@ function pawn_movement(piece, friendlyColor, opponentColor)
 		var pieceY = parseInt(currentPos.substring(1, 2), 10); // Cast to int so we can do arithmetic with the position
 		var pieceX = parseInt(currentPos.substring(0, 1), 10);
 	}
-	catch(TypeError)
+	catch(TypeError) // If the piece no longer exists
 	{
 		return; // If not returned, the player(s) will have to click an extra time to reset the piece selection
 	}
@@ -599,15 +610,51 @@ function pawn_movement(piece, friendlyColor, opponentColor)
 	// Add the current position as an available place
 	$("#" + currentPos).removeClass(removableClass).addClass(availableClass);
 
-	projectedPosition = ("#" + (pieceX + moveDirection) + (pieceY));
-	check_piece_surroundings(projectedPosition, friendlyColor);
+	projectedPosition = ("#" + (pieceX + moveDirection) + (pieceY)); // The place in front of the pawn
+	var diagonalPosition1 = ("#" + (pieceX + moveDirection) + (pieceY + moveDirection)); // Pawns can only take pieces diagonal to them
+	var diagonalPosition2 = ("#" + (pieceX + moveDirection) + (pieceY - moveDirection));
 
-	if(check_pawn_movement(piece)) // If the pawn hasn't moved yet, it can move two spaces
+
+	// Checking for available spaces for the diagonal positions
+	// If there is an opposing piece, the pawn can take it
+	try
 	{
-		projectedPosition = ("#" + (pieceX + (moveDirection * 2)) + (pieceY));
-		check_piece_surroundings(projectedPosition, friendlyColor);
+		if($(diagonalPosition2).attr("class").includes(opponentColor + "Piece"))
+		{
+			add_available_space(diagonalPosition2);
+		}
 	}
+	catch(TypeError) // If there is an invalid place, just cancel
+	{} // Do nothing
 
+	try
+	{
+		if($(diagonalPosition1).attr("class").includes(opponentColor + "Piece"))
+		{
+			add_available_space(diagonalPosition1);
+		}
+	}
+	catch(TypeError) // If there is an invalid place, just cancel
+	{} // Do nothing
+
+	try
+	{
+		if(!$(projectedPosition).attr("class").includes("Piece")) // If there isn't a piece in the way of the pawn
+		{
+			check_piece_surroundings(projectedPosition, friendlyColor);
+
+			if(check_pawn_movement(piece)) // If the pawn hasn't moved yet, it can move two spaces
+			{
+				projectedPosition = ("#" + (pieceX + (moveDirection * 2)) + (pieceY));
+				if(!$(projectedPosition).attr("class").includes("Piece")) // If there isn't a piece in the way of the pawn
+				{
+					check_piece_surroundings(projectedPosition, friendlyColor);
+				}
+			}
+		}
+	}
+	catch(TypeError) // If there is an invalid place, just cancel
+	{} // Do nothing
 };
 
 function check_pawn_movement(inputPiece)
@@ -618,40 +665,45 @@ function check_pawn_movement(inputPiece)
 	}
 	else
 	{
-		pawnArray.push(inputPiece); // Add it to the array
 		return true; // It's allowed to move two spaces, return true
 	}
 };
 
-function move_piece(id) // id: place to which we're moving
+function move_piece(gotoPlace) // gotoPlace: place to which we're moving
 {
 	toggle_available_spaces();
 	var currentPos = $("." + selectedPiece).attr("id"); // Get the current position of the piece
 
-	if(currentPos === id)
+	if(currentPos === gotoPlace)
 	{
 		toggle_available_spaces();
+		return;
+	}
+
+	if(selectedPiece.includes("Pawn"))
+	{
+		pawnArray.push("." + selectedPiece); // Add it to the array
 	}
 
 	var currentIcon = $("#" + currentPos + "Icon").attr("class");
 	currentIconName = currentIcon.substring(currentIcon.lastIndexOf("-") + 1); // Get the type of piece from the icon
 
 	var classes = $("#" + currentPos).attr("class"); // Get all classes for the current position
-	var projectedClasses = $("#" + id).attr("class"); // Get all classes for the position to which we're moving
+	var projectedClasses = $("#" + gotoPlace).attr("class"); // Get all classes for the position to which we're moving
 
-	classes = classes.substring(11, classes.length); // Take everything after the black/white Place class
-	projectedClasses = projectedClasses.substring(11, projectedClasses.length);
+	classes = classes.substring(11, classes.length); // Take everything after the 'black/white Place' class (keep the square on the board)
+	projectedClasses = projectedClasses.substring(11, projectedClasses.length); // Get the classes for the piece to which we're moving
 
-	classes = classes.replace("available", ""); // Remove the available class from them
+	classes = classes.replace("available", ""); // Remove the 'available' class from both places, to end the turn
 	projectedClassse = projectedClasses.replace("available", "");
 
-	$("#" + currentPos).removeClass(classes);
-	$("#" + currentPos + "Icon").removeClass();
+	$("#" + currentPos).removeClass(classes); // Remove all classes except the square color from the place we're at
+	$("#" + currentPos + "Icon").removeClass(); // Remove the icon
 
-	$("#" + id).removeClass(projectedClasses);
-	$("#" + id + "Icon").removeClass();
+	$("#" + gotoPlace).removeClass(projectedClasses); // Remove all classes except the square color from the place to which we're moving
+	$("#" + gotoPlace + "Icon").removeClass(); // Remove the icon
 
-	$("#" + id).addClass(classes);
+	$("#" + gotoPlace).addClass(classes); // Add the classes from the current position to the place we're going
 
-	add_icon(id, currentIconName);
+	add_icon(gotoPlace, currentIconName); // Add the icon to the place we're going
 };

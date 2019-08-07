@@ -188,12 +188,8 @@ a.bclink:active {
 	font-size: 3rem;
 }
 
-td:hover {
-	transition: all 0.2s ease 0s;
-	background: rgba(0, 0, 255, 0.3);
-}
-
-.whitePlace.available:hover, .blackPlace.available:hover {
+td.whitePlace:hover, td.blackPlace:hover {
+	/*transition: all 0.2s ease 0s;*/
 	background: rgba(0, 0, 255, 0.3);
 }
 
