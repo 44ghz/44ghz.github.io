@@ -14,6 +14,11 @@
 	<link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
+	<!-- Code highlighting and line numbering -->
+	<script src="highlight/highlight.pack.js"></script>
+	<script src="highlightjs-line-numbers.js-master/src/highlightjs-line-numbers.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
 	<!-- Site css -->
 	<link rel="stylesheet"
 	href="wwwroot/site.css">
@@ -26,29 +31,281 @@
   <script src="js/common.js"></script>
 </head>
 <body>
-	<div class="wrapper">
+	<div class="wrapper" style="padding-bottom: 60px;">
 		<div class="bc">
 			<h3>/&nbsp<a class="bclink" href="projects.html">projects</a>&nbsp/&nbspwebsite</h3>
 			<hr>
 		</div>
 
 		<h1>
-			placeholder
+			website
 		</h1>
+		<br>
+
+		<h4>
+			purpose
+		</h4>
+		<div class="separator"></div>
+		<br>
+
 		<p>
-			Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-			Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-			It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+			This website is meant to be a showcase of some of the work I've done, including some of the schoolwork I've completed during my time at my university.
 		</p>
 		<br>
 		<p>
-			It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-			Many desktop publishing packages and web page editors now use.
+			Additionally, I'm able to use it to host projects that are meant for the web, like the chess game. Not only that, but it gives me a chance to strengthen my web developer skills as I've been primarily back-end focused during my time at school.
+			I also get a chance to practice my creativity in creating a web UI and enhancing the end user experience. <br><br>
+
+			View the repository for the site <a href="https://github.com/44ghz/44ghz.github.io">here</a>.
 		</p>
+
 		<br>
 		<br>
 
+		<h4>
+			tools
+		</h4>
+		<div class="separator"></div>
+		<br>
+
+		<p>
+			The site was created using HTML5, CSS3, and JavaScript, with help from
+			<a href="https://getbootstrap.com/">Bootstrap</a> and
+			<a href="https://jquery.com/">JQuery</a>. In addition, <a href="https://fontawesome.com/icons">FontAwesome 5</a> was used for icons, as well as some Google Fonts. <br>
+			For code higlighting on pages, <a href="https://highlightjs.org/">highlight.js</a> was used. To achieve the line numbering on the code display, I used <a href="https://github.com/wcoder/highlightjs-line-numbers.js/">highlightjs-line-numbers.js</a>. <br> <br>
+
+			 It was built by hand, using no templates or layouts, and is primarily built for modern browsers. However, I'm working to extend the functionality to legacy browsers as well.
+		</p>
+
+		<br>
+		<br>
+
+		<h4>
+			features / docs
+		</h4>
+		<div class="separator"></div>
+		<br>
+
+		<p>
+			I've included links to my resume, which is hosted on the site itself, in addition to links to my
+			<a href="https://github.com/44ghz">GitHub</a> and
+			<a href="https://linkedin.com/in/george-perez-749b95174">LinkedIn</a>.
+			There's also a method of contacting me easily with any comments or questions.</p> <br><br>
+
+			<h4>code display</h4>
+			<p>
+			The majority of the work has went into hosting some of my work from my GitHub page.
+			This was achieved by contacting GitHub's API using JavaScript, and pulling the code straight from the repositories. This was also done for some images, like the screenshots found on my <a href="flightpicker.html">Flight Picker</a> page.
+			A code snippet demonstrating this is displayed below:</p>
+			<br>
+
+
+
+			<pre class="pre-scrollable border shadow-sm">
+<code class="hljs javascript">var language;
+var loadingIcon;
+
+function display_source(repo, filePath, inputLanguage, inputLoadingIcon)
+{
+	language = inputLanguage;
+	loadingIcon = inputLoadingIcon;
+	var request = new XMLHttpRequest();
+	var fn = get_content;
+	request.onload = fn;
+	request.open(&#39;get&#39;, &#39;https://api.github.com/repos/44ghz/&#39; + repo + &#39;/contents&#39; + filePath, true)
+	request.send();
+}
+
+function get_content()
+{
+	var responseObj = JSON.parse(this.responseText);
+	var content = responseObj.content;
+	content = atob(content); // Decoding the content of the file
+	content = pad_content(content); // Add spaces to beginning of each line to offset the line numbering
+
+	// Creating element for code display
+	$(document.body).append(
+	` &lt;div class=&quot;wrapper&quot;&gt;&lt;pre&gt;&lt;code class=&quot;hljs `+ language + ` border-left&quot;&gt;` + content + `&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+			&lt;div class=&quot;wrapper&quot; id=&quot;ghlogo&quot; style=&quot;pointer-events: none; user-select: none; user-interaction: none; disabled&quot;&gt;
+				&lt;div style=&quot;text-align: center; padding-bottom: 40px;&quot;&gt;
+					&lt;img draggable=&quot;false&quot; src=&quot;img/ghmark32.png&quot; alt=&quot;GitHub Mark&quot; style=&quot;opacity: 0.2;&quot;&gt;&lt;/img&gt;&lt;span style=&quot;font-size: 12px; opacity: 0.4;&quot;&gt;&amp;nbspAPI&lt;/span&gt;
+				&lt;/div&gt;
+		&lt;/div&gt;`);
+
+	// Remove the loading circle when the content is loaded
+	var removeLoading = document.getElementById(loadingIcon);
+	removeLoading.parentNode.removeChild(removeLoading);
+
+	// Adding code highlighting for each &lt;pre&gt;&lt;code&gt; block
+	document.querySelectorAll(&#39;pre code&#39;).forEach((block) =&gt; {
+			hljs.highlightBlock(block);
+		});
+
+	// Add the ability to toggle line numbers
+	var script = document.createElement(&quot;script&quot;);
+	script.src = &quot;js/lineswitch.js&quot;;
+
+	document.head.appendChild(script);
+};
+</code></pre>
+			<div class="text-right"><a href="js/displaysource.js"><small>js/displaysource.js</small></a></div>
+		<br>
+		<p>
+			The code is generalized to take in parameters of the repository, the filepath for the file, the type of language the file is, and the loading icon that is in place of the code while it loads. <br>
+			It creates a new <code>XMLHttpRequest</code>, which loads the function <code>get_content()</code> before accessing GitHub's API with the <code>request.open()</code> function.
+		</p>
+		<br>
+		<p>
+			<code>get_content()</code> parses the return string and converts it to JSON, then decodes it (as the content from the return object is Base64 encoded).
+			Then, the DOM is accessed using JQuery and the body is appended to include the content from the HTTP request.
+			Once this is done, the loading icon is removed, and the code is highlighted using hightlightjs. There is a toggle for the line numbers, the script for which is loaded into the <code>&lthead&gt</code> afterwards.
+		</p>
+
+		<br>
+		<br>
+
+		<h4>navbar</h4>
+
+		<p>
+			The navbar is built using Bootstrap's navbar, and is designed to stay sticky to the top of the page while scrolling. It's got links for everything relevant about my work, and has a button for nightmode. <br><br>
+			It stays persistent across the site by being contained in <code><a href="js/common.js">js/common.js</a></code>, which is called in the <code>&lthead&gt</code> of every page. <br><br>
+
+			The bar also reflects the time of day change, changing the gradient based on the current time. Not only that, but when the site is in day mode, there is a random cloud image chosen from a set of three. When the site is in nightmode, a background image of a starry sky is chosen instead.
+		</p>
+
+		<br>
+		<br>
+
+		<h4>nightmode</h4>
+
+		<p>
+			Everything's gotta have a nightmode, right? <br>
+			This was primarily added in for fun, and also because it's not necessarily easy to see a blinding white screen at night (or day if that's your thing).<br><br>
+
+			Nightmode is activated by clicking the <i class="fas fa-sun"></i> or <i class="fas fa-moon"></i> on the navbar, and can be reverted by clicking the icon again. The effect is a transitioned change of colors from off-white to a purplish dark color, with matching accents.
+			In addition, when the icon is clicked, it performs a small animation, which is made using JQuery. <br><br>
+
+			The effect is achieved through use of CSS variables and JavaScript / JQuery. When the icon is clicked, <code><a href="js/nightmode.js">js/nightmode.js</a></code> does a few things: </p>
+			<ul style="color: var(--mydark); line-height: 1.8;">
+				<li>Checks the current color scheme and adjusts logic accordingly</li>
+				<li>The stylesheet for the code display is replaced (dark color scheme vs. light color scheme)</li>
+				<li>CSS variables controlling the color of the text, background, and various aspects of the page are updated to new values</li>
+				<li>The background image for the navbar is changed</li>
+				<li>Local storage is updated to reflect the new change</li>
+				<li>Icon for the mode is changed to the current mode</li>
+			</ul>
+		 	<p>
+				This doesn't just happen when the icon is clicked. When the page is loaded, it uses <code><a href="js/common.js">js/common.js</a></code> to check the local storage for the current color scheme.
+				Depending on the mode selected, it performs the same functionality as clicking the button, but does so before the page finishes loading. <br><br>
+
+				Check out the source code for the toggle below:
+			</p>
+
+			<pre class="pre-scrollable border shadow-sm">
+<code class="hljs javascript">function toggleNightMode()
+{
+	var date = new Date(); // Getting current date and time for use in deciding which day mode to display
+	var currentHour = date.getHours();
+	var cloudImageNumber = Math.floor(Math.random() * 3); // Random cloud image selection
+
+	var page = document.getElementsByTagName(&quot;html&quot;)[0]; // Get the entire html page as an object
+
+	if(localStorage[&quot;mode&quot;] === &quot;dark&quot;) // If the site is in dark mode, make it light
+	{
+		page.style.cssText = &quot;--mydark: #414345&quot;;
+		page.style.cssText += &quot;--mylight: #f9f9f9&quot;;
+		page.style.cssText += &quot;--mygray: #e8e8e8&quot;;
+		page.style.cssText += &quot;--mylight-gray: #f2f2f2&quot;;
+		page.style.cssText += &quot;--mydark-gray: #e0e0e0&quot;;
+
+		if(currentHour &lt;= MORNING &amp;&amp; currentHour &gt; SUNRISE) // Orange-yellow theme
+		{
+			page.style.cssText += &quot;--nav-hover: rgba(255, 234, 199, 0.5)&quot;;
+			page.style.cssText += &quot;--nav-gradient-1: #fcd8bb&quot;;
+			page.style.cssText += &quot;--nav-gradient-2: #ff9b54&quot;;
+		}
+		else if(currentHour &lt;= AFTERNOON &amp;&amp; currentHour &gt; MORNING) // Light blue theme
+		{
+			page.style.cssText += &quot;--nav-hover: rgba(89, 200, 255, 0.5)&quot;;
+			page.style.cssText += &quot;--nav-gradient-1: #adcdff&quot;;
+			page.style.cssText += &quot;--nav-gradient-2: #5e9dff&quot;;
+		}
+		else if(currentHour &lt;= EVENING &amp;&amp; currentHour &gt; AFTERNOON) // Darker orange, reversed
+		{
+			page.style.cssText += &quot;--nav-hover: rgb(179, 86, 16, 0.5)&quot;;
+			page.style.cssText += &quot;--nav-gradient-1: #ff8b38&quot;;
+			page.style.cssText += &quot;--nav-gradient-2: #ffbd87&quot;;
+		}
+		else // Darker orange / lavender
+		{
+			page.style.cssText += &quot;--nav-hover: rgba(140, 61, 0, 0.5)&quot;;
+			page.style.cssText += &quot;--nav-gradient-1: #de6910&quot;;
+			page.style.cssText += &quot;--nav-gradient-2: #85759c&quot;;
+		}
+
+		page.style.cssText += &quot;--nav-background-img: url(../img/clouds&quot; + cloudImageNumber + &quot;.png)&quot;;
+
+		page.style.cssText += &quot;--display-light: #ffffff&quot;;
+		page.style.cssText += &quot;--white: #ffffff&quot;;
+		page.style.cssText += &quot;--black: #000000&quot;;
+
+		// Replacing the stylesheets for code display
+		$(&quot;link[rel=stylesheet][href~=&#39;./highlight/styles/atom-one-dark.css&#39;]&quot;).remove();
+		$(&quot;head&quot;).append(&quot;&lt;link rel=&#39;stylesheet&#39; href=&#39;highlight/styles/atom-one-light.css&#39;&gt;&quot;);
+
+		localStorage[&quot;mode&quot;] = &quot;light&quot;; // Updating local storage
+
+		// Animation for changing icon once the moon has set
+		window.setTimeout(function(){
+			$(&quot;#moonIcon&quot;).removeClass(&quot;fas fa-moon&quot;); // Swapping moon icon
+			$(&quot;#moonIcon&quot;).addClass(&quot;fas fa-sun&quot;);
+		}, 200);
+	}
+	else
+	{
+		page.style.cssText = &quot;--mydark: #ced0d9&quot;;
+		page.style.cssText += &quot;--mylight: #282c34&quot;;
+		page.style.cssText += &quot;--mygray: #1f2329&quot;;
+		page.style.cssText += &quot;--mylight-gray: #343b45&quot;
+		page.style.cssText += &quot;--mydark-gray: #21242b&quot;;
+		page.style.cssText += &quot;--nav-hover: rgba(59, 54, 69, 0.5)&quot;;
+		page.style.cssText += &quot;--nav-gradient-1: #33303d&quot;;
+		page.style.cssText += &quot;--nav-gradient-2: #1c1e24&quot;;
+		page.style.cssText += &quot;--display-light: #1a191f&quot;
+		page.style.cssText += &quot;--white: #000000&quot;;
+		page.style.cssText += &quot;--black: #ffffff&quot;;
+		page.style.cssText += &quot;--nav-background-img: url(../img/stars.png)&quot;;
+
+		// Replacing the stylesheets for code display
+		$(&quot;link[rel=stylesheet][href~=&#39;./highlight/styles/atom-one-light.css&#39;]&quot;).remove();
+		$(&quot;head&quot;).append(&quot;&lt;link rel=&#39;stylesheet&#39; href=&#39;highlight/styles/atom-one-dark.css&#39;&gt;&quot;);
+
+		localStorage[&quot;mode&quot;] = &quot;dark&quot;; // Updating local storage
+
+		// Animation for changing icon once the moon has set
+		window.setTimeout(function(){
+			$(&quot;#moonIcon&quot;).removeClass(&quot;fas fa-sun&quot;); // Swapping moon icon
+			$(&quot;#moonIcon&quot;).addClass(&quot;fas fa-moon&quot;);
+		}, 200);
+
+	}
+};
+
+$(document).ready(function(){$(&quot;#moon&quot;)
+	.click(function(){
+		$(&quot;#moonIcon&quot;).slideUp(&quot;fast&quot;); $(&quot;#moonIcon&quot;).slideDown(&quot;fast&quot;)})});</code></pre>
+		<div class="text-right"><a href="js/nightmode.js"><small>js/nightmode.js</small></a></div>
+		<br>
+
+		<p>
+			The first step is determining what mode the site is already in. If it's in day mode and the mode is toggled, change it to night and vice versa. To change the variables themselves, the entire HTML page is retrieved as an object using <code>document.getElementsByTagName("html")[0]</code>.
+			Then, once the state of the site is determined, the page's CSS is accessed using <code>page.style.cssText</code>. We can overwrite the text that's already there by assigning the first value to the variable <code>--mydark</code>.
+			After that, it's just a matter of adding the subsequent variables onto the page. <br><br>
+
+			Once the colors are finished, the background image for the navbar is changed, which is just the filepath used in <code><a href="wwwroot/site.css">wwwroot/site.css</a></code>. Afterwards, the stylesheet for the code highlighting is changed. This is done by selecting the current stylesheet and removing it using JQuery's <code>.remove()</code>; the new stylesheet is appended to the <code>&lthead&gt</code> using JQuery's <code>.append()</code> function. <br><br>
+
+			The local storage is changed to reflect the current mode so the pages stay consistent across the site. The icon for nightmode on the navbar is changed, then the animation plays for the swap.
+		</p>
 	</div>
 </body>
 </html>

@@ -16,10 +16,10 @@
 	--placeHighlightColor: rgba(50, 100, 190, 0.3);
 }
 
-html, body,
-h1, .bclink, .wrapper, p,
-h3, br, hr,
+html, body, p,
+h1, h2, h3, h4, br, hr, a, pre, code, ul,
 #featured, #moon, #ghlogo,
+.bclink, .wrapper, .separator,
 .display-4, .small, .accordion,
 .card, .card-header, .card-body,
 .border-left, .custom-control-label {
@@ -56,14 +56,43 @@ h3 {
 	user-select: none;
 }
 
+h4 {
+	color: var(--black);
+	font-weight: bold;
+	font-family: "Roboto", "Segoe UI", "Open Sans", "Optima", sans-serif;
+	font-size: 20px;
+	pointer-events: none;
+	user-select: none;
+}
+
+.separator {
+	background-color: var(--black);
+	height: 2px;
+	width: 170px;
+}
+
 hr {
 	border-color: var(--nav-gradient-1);
 	border-width: 2px;
 }
 
-a.bclink {
-	display: inline-block;
+a {
 	color: var(--mydark);
+	text-decoration: underline;
+}
+
+a:hover {
+	color: var(--black);
+}
+
+a.bclink {
+	color: var(--mydark);
+	display: inline-block;
+	text-decoration: none;
+}
+
+a.bclink:hover {
+	text-decoration: underline;
 }
 
 a.bclink:active {
@@ -253,8 +282,7 @@ td.whitePlace:hover, td.blackPlace:hover {
 }
 
 .pre-scrollable {
-	max-height: 600px;
-  overflow-x: scroll;
+	max-height: 500px;
 }
 
 .btn:active {
@@ -290,6 +318,7 @@ td.whitePlace:hover, td.blackPlace:hover {
 .navbar .nav-item .nav-link {
 	color: var(--mydark);
 	height: 40px;
+	text-decoration: none;
 }
 
 .nav-link:hover, .nav-link:focus {
@@ -320,6 +349,7 @@ td.whitePlace:hover, td.blackPlace:hover {
 
 .dropdown-item {
 	color: var(--mydark);
+	text-decoration: none;
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
