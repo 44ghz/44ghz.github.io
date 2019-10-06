@@ -21,7 +21,7 @@
 
 	<!-- Site css -->
 	<link rel="stylesheet"
-	href="wwwroot/site.css">
+	href="styles/site.css">
 
 	<!-- Font support -->
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans"/>
@@ -302,7 +302,7 @@ $(document).ready(function(){$(&quot;#moon&quot;)
 			Then, once the state of the site is determined, the page's CSS is accessed using <code>page.style.cssText</code>. We can overwrite the text that's already there by assigning the first value to the variable <code>--mydark</code>.
 			After that, it's just a matter of adding the subsequent variables onto the page. <br><br>
 
-			Once the colors are finished, the background image for the navbar is changed, which is just the filepath used in <code><a href="wwwroot/site.css">wwwroot/site.css</a></code>. Afterwards, the stylesheet for the code highlighting is changed. This is done by selecting the current stylesheet and removing it using JQuery's <code>.remove()</code>; the new stylesheet is appended to the <code>&lthead&gt</code> using JQuery's <code>.append()</code> function. <br><br>
+			Once the colors are finished, the background image for the navbar is changed, which is just the filepath used in <code><a href="styles/site.css">styles/site.css</a></code>. Afterwards, the stylesheet for the code highlighting is changed. This is done by selecting the current stylesheet and removing it using JQuery's <code>.remove()</code>; the new stylesheet is appended to the <code>&lthead&gt</code> using JQuery's <code>.append()</code> function. <br><br>
 
 			The local storage is changed to reflect the current mode so the pages stay consistent across the site. The icon for nightmode on the navbar is changed, then the animation plays for the swap.
 		</p>
