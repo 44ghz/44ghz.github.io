@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-	<title>testing</title>
+	<title>Numerals</title>
 
 	<!-- Bootstrap -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -44,24 +44,16 @@
 			<hr>
 		</div>
 
-		<h1>placeholder</h1>
+		<h1>numerals</h1>
 		<p>
-			Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-			Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-			It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-		</p>
-		<br>
-		<p>
-			It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-			Many desktop publishing packages and web page editors now use.
-		</p>
-		<br>
-		<p>
-			Nam maximus id lacus in malesuada. Aenean vitae lacus orci. Etiam pretium gravida nisi, et varius lorem pulvinar eget. Curabitur et mi enim. Nunc ac semper odio. Aenean eu diam et lorem blandit eleifend.
-			Fusce nec magna congue, placerat nisi eu, lobortis magna. Vivamus id pellentesque nibh. Aenean diam velit, venenatis non augue vitae, condimentum convallis ante.
-			Pellentesque sit amet sapien sit amet nibh mattis euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-			Nunc dapibus sapien sit amet felis sagittis venenatis. Praesent massa nulla, gravida sed vehicula a, maximus sit amet dui.
+			This program is written in C++ and utilizes a finite state machine to determine the validity of a numeral the user enters. After the user enters their number, it is processed in
+			the machine and is determined whether or not it belongs in the language of Roman Numerals.
+			<br>
+			<br>
+			It was written for my Theoretical Foundations course in Fall 2018.
+			The program works by taking the string the user provides (<code>input</code>) and compares it to a finite state table.
+			While parsing the string, it will continue to move through the table until it has reached either an <code>accept</code> state or a <code>dead</code> state.
+			When the string has been fully parsed, the program outputs the result of the state table.
 		</p>
 
 		<br>

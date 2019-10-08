@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-	<title>testing</title>
+	<title>Greenscreen</title>
 
 	<!-- Bootstrap -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -45,25 +45,21 @@
 
 		<h1>greenscreen</h1>
 		<p>
-			Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-			Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-			It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+			This program is written in Java and allows a greenscreen effect on an image. It requires two images,
+			the first being the greenscreen image, which is some figure with a green background (<code>gsImage</code>), and the second being the replacement, or background image (<code>repImage</code>).
+			<br><br>
+			Once the images are input, it takes a tolerance (<code>tolerance</code>) from the user. The tolerance is measure of how strong the effect is, meaning the more strict the program is regarding its
+			replacement of green pixels in the greenscreen image. Using the tolerance, the green pixels in the greenscreen image are replaced with the pixels from the replacement image.
+			<br><br>
+			The two images are combined into a new file which is named after the greenscreen image appended with <code>_merged</code>, which is then compared with other files in the current directory.
+			If that same filename exists in the current directory, it simply adds a counter to the end of the filename. If <em>that</em> filename exists, then the counter is incremented until
+			a filename is found that doesn't already exist. This allows the user to play around with the tolerance to find a level that works best.
 		</p>
 		<br>
 		<p>
-			It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-			Many desktop publishing packages and web page editors now use.
 		</p>
 		<br>
-		<p>
-			Nam maximus id lacus in malesuada. Aenean vitae lacus orci. Etiam pretium gravida nisi, et varius lorem pulvinar eget. Curabitur et mi enim. Nunc ac semper odio. Aenean eu diam et lorem blandit eleifend.
-			Fusce nec magna congue, placerat nisi eu, lobortis magna. Vivamus id pellentesque nibh. Aenean diam velit, venenatis non augue vitae, condimentum convallis ante.
-			Pellentesque sit amet sapien sit amet nibh mattis euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-			Nunc dapibus sapien sit amet felis sagittis venenatis. Praesent massa nulla, gravida sed vehicula a, maximus sit amet dui.
-		</p>
-		<br>
-		<br>
+
 
 		<h1>code</h1>
 		<div class="custom-control custom-switch">

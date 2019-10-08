@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-	<title>testing</title>
+	<title>Flight Picker</title>
 
 	<!-- Bootstrap -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -43,24 +43,12 @@
 			<h3>/&nbsp<a class="bclink" href="projects.html">projects</a>&nbsp/&nbsp<a class="bclink" href="schoolwork.html">schoolwork</a>&nbsp/&nbspflight-picker</h3>
 			<hr>
 		</div>
-		<h1>placeholder</h1>
+		<h1>flightpicker</h1>
 		<p>
-			Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-			Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-			It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-		</p>
-		<br>
-		<p>
-			It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-			Many desktop publishing packages and web page editors now use.
-		</p>
-		<br>
-		<p>
-			Nam maximus id lacus in malesuada. Aenean vitae lacus orci. Etiam pretium gravida nisi, et varius lorem pulvinar eget. Curabitur et mi enim. Nunc ac semper odio. Aenean eu diam et lorem blandit eleifend.
-			Fusce nec magna congue, placerat nisi eu, lobortis magna. Vivamus id pellentesque nibh. Aenean diam velit, venenatis non augue vitae, condimentum convallis ante.
-			Pellentesque sit amet sapien sit amet nibh mattis euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-			Nunc dapibus sapien sit amet felis sagittis venenatis. Praesent massa nulla, gravida sed vehicula a, maximus sit amet dui.
+			A Python program that parses and tabulates a large excel file to find the best flights for certain criteria.
+			There are two modes in which it operates: Automatic and Manual.
+			Automatic will find the best flights for all criteria, whereas Manual will find the best flights for criteria provided by the user.
+			Utilizes Tkinter for GUI and pandas for initial data manipulation. Additionally, uses various intermediate files to increase performance of the program, primarily .dat and .csv files. Created for my Programming Languages course in Spring 2019.
 		</p>
 		<br>
 		<br>
@@ -138,10 +126,7 @@
 		    </div>
 		    <div id="fpFile1" class="collapse" aria-labelledby="fpMainHeader" data-parent="#fpAccordion">
 		      <div class="card-body" id="fpMainBody">
-						A Python program that parses and tabulates a large excel file to find the best flights for certain criteria.
-						There are two modes in which it operates: Automatic and Manual.
-						Automatic will find the best flights for all criteria, whereas Manual will find the best flights for criteria provided by the user.
-						Utilizes Tkinter for GUI and pandas for initial data manipulation. Additionally, uses various intermediate files to increase performance of the program, primarily .dat and .csv files. Created for my Programming Languages course in Spring 2019.
+
 						<br><br>
 						<button class="btn btn-dark" onclick="download_source('flight-picker', 'main.pyw')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
 						<hr>
@@ -157,14 +142,13 @@
 		  <div class="card" id="fpDataretrievalCard">
 		    <div class="card-header" id="fpDataretrievalHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" onclick="removeUpButton('fpUpButton')" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpDataretrieval" aria-expanded="false" aria-controls="fpDataretrieval">
+		        <button class="btn btn collapsed" onclick="removeUpButton('fpUpButton')" style="color: var(--black); padding-right: 1050px;" type="button" data-toggle="collapse" data-target="#fpDataretrieval" aria-expanded="false" aria-controls="fpDataretrieval">
 		          /modules/dataretrieval.py
 		        </button>
 		      </h2>
 		    </div>
 		    <div id="fpDataretrieval" class="collapse" aria-labelledby="fpDataretrievalHeader" data-parent="#fpAccordion">
 		      <div class="card-body" id="fpDataretrievalBody">
-						Testing
 						<br><br>
 						<button class="btn btn-dark" onclick="download_source('flight-picker', '/modules/dataretrieval.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
 						<hr>
@@ -180,14 +164,13 @@
 			<div class="card" id="fpOptionsCard">
 		    <div class="card-header" id="fpOptionsHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" onclick="removeUpButton('fpUpButton')" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpOptions" aria-expanded="false" aria-controls="fpOptions">
+		        <button class="btn btn collapsed" onclick="removeUpButton('fpUpButton')" style="color: var(--black); padding-right: 1080px;" type="button" data-toggle="collapse" data-target="#fpOptions" aria-expanded="false" aria-controls="fpOptions">
 		          /modules/options.py
 		        </button>
 		      </h2>
 		    </div>
 		    <div id="fpOptions" class="collapse" aria-labelledby="fpOptionsHeader" data-parent="#fpAccordion">
 		      <div class="card-body" id="fpOptionsBody">
-						Testing
 						<br><br>
 						<button class="btn btn-dark" onclick="download_source('flight-picker', '/modules/options.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
 						<hr>
@@ -203,14 +186,13 @@
 			<div class="card" id="fpResultsCard">
 		    <div class="card-header" id="fpResultsHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" onclick="removeUpButton('fpUpButton')" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpResults" aria-expanded="false" aria-controls="fpResults">
+		        <button class="btn btn collapsed" onclick="removeUpButton('fpUpButton')" style="color: var(--black); padding-right: 1080px;" type="button" data-toggle="collapse" data-target="#fpResults" aria-expanded="false" aria-controls="fpResults">
 		          /modules/results.py
 		        </button>
 		      </h2>
 		    </div>
 		    <div id="fpResults" class="collapse" aria-labelledby="fpResultsHeader" data-parent="#fpAccordion">
 		      <div class="card-body" id="fpResultsBody">
-						Testing
 						<br><br>
 						<button class="btn btn-dark" onclick="download_source('flight-picker', '/modules/results.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
 						<hr>
@@ -226,14 +208,13 @@
 			<div class="card" id="fpTkfunctionsCard">
 		    <div class="card-header" id="fpTkfunctionsHeader">
 		      <h2 class="mb-0">
-		        <button class="btn btn collapsed" onclick="removeUpButton('fpUpButton')" style="color: var(--black); padding-right: 1180px;" type="button" data-toggle="collapse" data-target="#fpTkfunctions" aria-expanded="false" aria-controls="fpTkfunctions">
+		        <button class="btn btn collapsed" onclick="removeUpButton('fpUpButton')" style="color: var(--black); padding-right: 1050px;" type="button" data-toggle="collapse" data-target="#fpTkfunctions" aria-expanded="false" aria-controls="fpTkfunctions">
 		          /modules/tkfunctions.py
 		        </button>
 		      </h2>
 		    </div>
 		    <div id="fpTkfunctions" class="collapse" aria-labelledby="fpTkfunctionsHeader" data-parent="#fpAccordion">
 		      <div class="card-body" id="fpTkfunctionsBody">
-						Testing
 						<br><br>
 						<button class="btn btn-dark" onclick="download_source('flight-picker', '/modules/tkfunctions.py')"><i class="fas fa-file-download"></i>&nbsp&nbspDownload Source</button>
 						<hr>
