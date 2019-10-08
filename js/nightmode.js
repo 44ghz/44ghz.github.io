@@ -35,8 +35,8 @@ function toggleNightMode()
 		else // Darker orange / lavender
 		{
 			page.style.cssText += "--nav-hover: rgba(140, 61, 0, 0.5)";
-			page.style.cssText += "--nav-gradient-1: #de6910";
-			page.style.cssText += "--nav-gradient-2: #85759c";
+			page.style.cssText += "--nav-gradient-1: #db993b";
+			page.style.cssText += "--nav-gradient-2: #7c588a";
 		}
 
 		page.style.cssText += "--nav-background-img: url(../img/clouds" + cloudImageNumber + ".png)";
