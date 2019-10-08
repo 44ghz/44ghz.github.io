@@ -2,16 +2,16 @@
 
 /* Portrait and Landscape */
 @media only screen
-  and (min-device-width: 414px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 3) {
+  and (min-width: 460px)
+  and (max-width: 768px){
 	html {
     font-size: calc(24px + 2 * ((100vw - 360px) / 736));
   }
-	/* .wrapper {
+
+	.wrapper {
 		padding-left: 100px;
 		padding-right: 100px;
-	} */
+	}
 
 	p {
 		font-size: calc(28px + 2 * ((100vw - 360px) / 736));
@@ -20,22 +20,4 @@
 	#upButton {
 		font-size: 48px;
 	}
-}
-
-/* Portrait */
-@media only screen
-  and (min-device-width: 414px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: portrait) {
-
-}
-
-/* Landscape */
-@media only screen
-  and (min-device-width: 414px)
-  and (max-device-width: 736px)
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: landscape) {
-
 }
