@@ -2,8 +2,7 @@
 
 /* Portrait and Landscape */
 @media only screen
-  and (min-width: 460px)
-  and (max-width: 768px){
+  and (max-width: 900px){
 	html {
     font-size: calc(24px + 2 * ((100vw - 360px) / 736));
   }
