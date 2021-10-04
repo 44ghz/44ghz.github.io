@@ -1,9 +1,6 @@
-var charArray = []
-
 function loadCharacters() {
     mmsContents = document.getElementById("mmsContents").value;
     splitContents = mmsContents.split("\n");
-    charArray.length = 0; // Clear out character array
     charList = document.getElementById("characters");
     charList.innerHTML = '';
 
@@ -11,7 +8,6 @@ function loadCharacters() {
 
     for (let line of splitContents) {
         let stripped = line.split("|")[0];
-        charArray.push(stripped.toLowerCase());
 
         if (checkedValue)
             line = stripped
@@ -21,6 +17,17 @@ function loadCharacters() {
 }
 
 function generateCommand() {
+    charArray = [];
+    charactersHTML = document.getElementById("characters").innerHTML;
+    splitList = charactersHTML.split("</li>");
+
+    if (splitList[splitList.length - 1] == "")
+        splitList.pop();
+
+    for (let line of splitList) {
+        charArray.push(line.split('\">')[1].split(" | ")[0].toLowerCase()); // Can probably change this to a regex
+    }
+
     commandField = document.getElementById("command");
 
     commandField.value = "$sm " + charArray.join(" $ ");
@@ -29,7 +36,6 @@ function generateCommand() {
 function clearMMS() {
     document.getElementById("mmsContents").value = '';
     charList.innerHTML = '';
-    charArray.length = 0;
 }
 
 // Stolen from w3schools
