@@ -37,6 +37,7 @@ var body =
 				<a class="dropdown-item" href="website.html">Website</a>
 				<a class="dropdown-item" href="greenscreen.html">Greenscreen</a>
 				<a class="dropdown-item" href="schoolwork.html">Schoolwork</a>
+				<a class="dropdown-item" href="sorter.html">Sorter</a>
 			</div>
 		</li>
 
