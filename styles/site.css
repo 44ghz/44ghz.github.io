@@ -490,4 +490,5 @@ td.whitePlace:hover, td.blackPlace:hover {
 
 #hideNotesLabel {
 	user-select: none;
+	color: var(--mydark);
 }
