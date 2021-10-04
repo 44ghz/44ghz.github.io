@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Sorter</title>
+
+	<!-- Bootstrap -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet"
+	href="bootstrap-4.3.1-dist/css/bootstrap.css">
+	<script src="bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+
+	<!-- Icons -->
+	<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+	<!-- Site css -->
+	<link rel="stylesheet"
+	href="styles/site.css">
+	<link rel="stylesheet"
+	href="styles/mediaqueries.css">
+
+	<!-- Font support -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans"/>
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto"/>
+
+	<!-- Common HTML -->
+    <script src="js/common.js"></script>
+
+	<!-- Sortable -->
+	<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+
+	<!-- Sorting -->
+	<script src="js/sorter.js"></script>
+
+</head>
+<body>
+	<div class="wrapper">
+		<h1>sorter</h1>
+		<div>
+			<p>
+				Input the contents of your $mms message below
+			</p>
+
+			<button class="btn btn-secondary shadow-sm" onclick="clearMMS()">Clear</button>
+			<button class="btn btn-dark shadow-sm" onclick="loadCharacters()">Load Characters</button>
+
+			<input type="checkbox" name="hideNotes" id="hideNotes" />
+			<label for="hideNotes" id="hideNotesLabel">Hide notes</label>
+		</div>
+		<br />
+		<div height="400px">
+			<textarea class="mmsText" id="mmsContents" autofocus placeholder="$mms contents..."></textarea>
+			<div id="characters" class="list-group col"></div>
+		</div>
+		<br />
+		<button onclick="generateCommand()">Generate command</button>
+		<div>
+			<p>Command:</p>
+			<div width="70%">
+				<input readonly id="command"/>
+			</div>
+			<div width="30%">
+				<button class="btn btn-secondary shadow-sm" onclick="copyToClipboard()">Copy</button>
+			</div>
+		</div>
+
+		<!-- 
+			add button to process
+			take value of text box and get the array of character names similar to the desktop sorter
+			revisit the height of the text box
+			replace text box with list just like desktop sorter, or put side by side?
+
+			think about having nested items for series somehow
+		-->
+
+		<script>
+			new Sortable(characters, {
+				multiDrag: true, // Enable multi-drag
+				selectedClass: 'selected', // The class applied to the selected items
+				fallbackTolerance: 3, // So that we can select items on mobile
+				animation: 150
+			});
+		</script>
+
+	</div>
+
+	<noscript>Javascript is disabled in your browser</noscript>
+</body>
+</html>

@@ -305,6 +305,12 @@ td.whitePlace:hover, td.blackPlace:hover {
 	color: var(--mylight);
 }
 
+.btn-secondary {
+	background-color: var(--mydark-gray);
+	font-size: 14px;
+	color: var(--mydark);
+}
+
 .btn-light {
 	outline: 0;
 	background-color: var(--mylight);
@@ -461,4 +467,27 @@ td.whitePlace:hover, td.blackPlace:hover {
 
 .border-left {
 	border-left: 1px solid var(--mygray) !important;
+}
+
+.selected {
+	background-color: #f9c7c8 !important;
+	border: solid red 1px !important;
+	z-index: 1 !important;
+}
+
+.mmsText {
+	resize: none;
+	overflow: visible;
+	min-width: 35%;
+	height: 300px;
+}
+
+#characters {
+	float: right;
+	width: 60%;
+	padding-bottom: 5%;
+}
+
+#hideNotesLabel {
+	user-select: none;
 }
