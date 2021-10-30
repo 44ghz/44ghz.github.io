@@ -30,12 +30,13 @@ function generateCommand() {
 
     commandField = document.getElementById("command");
 
-    commandField.value = "$sm " + charArray.join(" $ ");
+    commandField.value = "$sm " + charArray.join("$");
 }
 
 function clearMMS() {
     document.getElementById("mmsContents").value = '';
-    charList.innerHTML = '';
+    document.getElementById("characters").innerHTML = '';
+    document.getElementById("command").value = '';
 }
 
 // Stolen from w3schools
@@ -49,4 +50,8 @@ function copyToClipboard() {
 
     /* Copy the text inside the text field */
     navigator.clipboard.writeText(copyText.value);
+
+    copyConfirmIcon = document.getElementsByClassName("copyConfirm")[0];
+    copyConfirmIcon.style.opacity = 100;
+    setTimeout(() => { copyConfirmIcon.style.opacity = 0 }, 3000);
 }

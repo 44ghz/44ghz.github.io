@@ -338,7 +338,7 @@ td.whitePlace:hover, td.blackPlace:hover {
 }
 
 .nav-link:hover, .nav-link:focus {
-  text-decoration: none;
+	text-decoration: none;
 	background-color: var(--nav-hover);
 	border-bottom: solid;
 	border-bottom-right-radius: 3px;
@@ -475,6 +475,12 @@ td.whitePlace:hover, td.blackPlace:hover {
 	z-index: 1 !important;
 }
 
+.nav-link:hover, .nav-link:focus {
+	
+}
+
+/************      Sorter      *************/
+
 .mmsText {
 	resize: none;
 	overflow: visible;
@@ -482,13 +488,25 @@ td.whitePlace:hover, td.blackPlace:hover {
 	height: 300px;
 }
 
-#characters {
+.characters-left {
+	float: left;
+	width: 45%;
+	padding-bottom: 5%;
+}
+
+.characters-right {
 	float: right;
-	width: 60%;
+	width: 45%;
 	padding-bottom: 5%;
 }
 
 #hideNotesLabel {
 	user-select: none;
 	color: var(--mydark);
+}
+
+.copyConfirm {
+	color: limegreen;
+	transition: opacity 1s;
+	opacity: 0;
 }

@@ -28,7 +28,7 @@ var body =
 		</li>
 
 		<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+			<a class="nav-link dropdown-toggle" role="button" href="#" id="navbardrop" data-bs-toggle="dropdown">
 				<i class="fas fa-laptop-code"></i>
 				Projects
 			</a>
@@ -37,7 +37,7 @@ var body =
 				<a class="dropdown-item" href="website.html">Website</a>
 				<a class="dropdown-item" href="greenscreen.html">Greenscreen</a>
 				<a class="dropdown-item" href="schoolwork.html">Schoolwork</a>
-				<a class="dropdown-item" href="sorter.html">Sorter</a>
+				<a class="dropdown-item" href="mudae.html">Mudae</a>
 			</div>
 		</li>
 

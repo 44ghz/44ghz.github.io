@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Mudae</title>
+
+	<!-- Bootstrap -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!--<link rel="stylesheet"
+	href="bootstrap-4.3.1-dist/css/bootstrap.css">
+	<script src="bootstrap-4.3.1-dist/js/bootstrap.js"></script>-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<!-- Icons -->
+	<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+	<!-- Site css -->
+	<link rel="stylesheet" href="styles/site.css">
+
+	<!-- Font support -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans"/>
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto"/>
+
+	<!-- Common HTML -->
+    <script src="js/common.js"></script>
+
+	<link rel="stylesheet"
+	href="styles/mediaqueries.css">
+
+	<!-- Sortable -->
+	<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+
+	<!-- Sorting -->
+	<script src="js/mudae.js"></script>
+
+</head>
+<body>
+	<div class="wrapper">
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+			<li class="nav-item" role="presentation">
+				<button class="nav-link active" id="sorter-tab" data-bs-toggle="tab" data-bs-target="#sorter" type="button" role="tab" aria-controls="sorter" aria-selected="true">Sorter</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="note-tab" data-bs-toggle="tab" data-bs-target="#note" type="button" role="tab" aria-controls="note" aria-selected="false">Note Edit</button>
+			</li>
+		</ul>
+	<div class="tab-content" id="myTabContent">
+		<div class="tab-pane fade show active" id="sorter" role="tabpanel" aria-labelledby="sorter-tab">
+			<h1>sorter</h1>
+			<div>
+				<p>
+					Input the contents of your $mms message below
+				</p>
+
+				<button class="btn btn-secondary shadow-sm" onclick="clearMMS()">Clear</button>
+				<button class="btn btn-dark shadow-sm" onclick="loadCharacters()">Load Characters</button>
+			</div>
+			<br />
+			<div height="400px">
+				<textarea class="mmsText" id="mmsContents" autofocus placeholder="$mms contents..."></textarea>
+			</div>
+			<br />
+			<button class="btn btn-dark shadow-sm" onclick="generateCommand()">Generate command</button>
+			<div>
+				<p>Command:</p>
+				<input readonly id="command"/>
+				<button class="btn btn-secondary shadow-sm" onclick="copyToClipboard()"><i class="far fa-clipboard"></i></button> <i class="fas fa-check-circle copyConfirm"></i>
+			</div>
+
+			<br />
+			<br />
+
+			<div width="100%">
+				<div id="characters" class="list-group col"></div>
+			</div>
+
+			<script>
+				new Sortable(characters, {
+					multiDrag: true, // Enable multi-drag
+					selectedClass: 'selected', // The class applied to the selected items
+					fallbackTolerance: 3, // So that we can select items on mobile
+					animation: 150
+				});
+			</script>
+		</div>
+
+		<div class="tab-pane fade" id="note" role="tabpanel" aria-labelledby="note-tab">
+			<h1>note edit</h1>
+			<div>
+				<p>
+					Input the contents of your $mms message below
+				</p>
+
+				<button class="btn btn-secondary shadow-sm" onclick="clearMMS()">Clear</button>
+				<button class="btn btn-dark shadow-sm" onclick="loadCharacters()">Load Characters</button>
+			</div>
+			<br />
+			<div height="400px">
+				<textarea class="mmsText" id="mmsContents" autofocus placeholder="$mms contents..."></textarea>
+			</div>
+			<br />
+			<button class="btn btn-dark shadow-sm" onclick="generateCommand()">Generate command</button>
+			<div>
+				<p>Command:</p>
+				<input readonly id="command"/>
+				<button class="btn btn-secondary shadow-sm" onclick="copyToClipboard()"><i class="far fa-clipboard"></i></button> <i class="fas fa-check-circle copyConfirm"></i>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<noscript>Javascript is disabled in your browser</noscript>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
